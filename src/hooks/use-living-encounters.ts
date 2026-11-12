@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type { ExpeditionSighting } from "@/lib/destinations";
+import { renewEncounters } from "@/lib/living-encounters";
 type State = {
   key: string;
   items: ExpeditionSighting[];
@@ -32,16 +33,14 @@ export function useLivingEncounters(
             : { key: c.key, items: c.base, seconds: 20, revision: 0, removed: [] };
         if (current.seconds > 1) return { ...current, seconds: current.seconds - 1 };
         const revision = current.revision + 1;
-        const keep = [
-          ...current.items.filter((e) => e.pokemon.id !== c.protectedId).slice(2),
-          ...current.items.filter((e) => e.pokemon.id === c.protectedId),
-        ];
-        const ids = new Set(keep.map((e) => e.pokemon.id));
-        const fresh = c
-          .generate(revision)
-          .filter((e) => !ids.has(e.pokemon.id) && !current.removed.includes(e.pokemon.id))
-          .slice(0, Math.max(0, c.base.length - keep.length));
-        return { ...current, revision, seconds: 20, items: [...keep, ...fresh] };
+        const items = renewEncounters(
+          current.items,
+          c.generate(revision),
+          current.removed,
+          c.protectedId,
+          c.base.length,
+        );
+        return { ...current, revision, seconds: 20, items };
       });
     }, 1000);
     return () => window.clearInterval(timer);

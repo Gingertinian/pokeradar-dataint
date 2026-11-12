@@ -1,6 +1,19 @@
-import type { Coordinate } from "./geography";
+import { distanceInMeters, type Coordinate } from "./geography";
 
 export type SharedCamera = { coordinates: Coordinate; zoom: number };
+
+export function reachedDestination(
+  actual: SharedCamera,
+  expected: Coordinate,
+  minZoom: number,
+): boolean {
+  const viewTolerance =
+    (40075016 * Math.cos((expected[1] * Math.PI) / 180) * 0.5) / 2 ** actual.zoom;
+  return (
+    actual.zoom >= minZoom &&
+    distanceInMeters(actual.coordinates, expected) < Math.max(5000, viewTolerance)
+  );
+}
 
 export function parseSharedCamera(
   params: Record<string, string | string[] | undefined>,

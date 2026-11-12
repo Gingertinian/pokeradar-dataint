@@ -502,7 +502,13 @@ export function ExpeditionPanel(p: Props) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: reduced ? 0 : 0.25, delay: reduced ? 0 : index * 0.04 }}
                 >
-                  <Image src={region.image} alt="" width={320} height={120} />
+                  <Image
+                    src={region.image}
+                    alt=""
+                    width={320}
+                    height={120}
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
                   <span className="region-card-pokemon">
                     <PokemonImage
                       id={REGION_GUIDES[region.id]}

@@ -2,13 +2,14 @@ import type { Coordinate } from "./geography";
 
 type Point = { x: number; y: number };
 
-export type RadarPlacement = { side: "left" | "right"; lift: number };
+export type RadarPlacement = { side: "left" | "right"; lift: number; shift: number };
 
 export function radarPlacement(
   points: Point[],
   width: number,
   height: number,
   mobile = false,
+  otherPoints: Point[] = [],
 ): RadarPlacement {
   const consoleWidth = mobile ? Math.max(0, width - 24) : Math.min(820, Math.max(0, width - 56));
   const railWidth = mobile
@@ -16,7 +17,7 @@ export function radarPlacement(
     : Math.min(320, Math.max(0, consoleWidth - 56));
   const left = (width - consoleWidth) / 2;
   const right = left + consoleWidth - railWidth - 56;
-  const railHeight = mobile ? 168 : 95 + points.length * 60;
+  const railHeight = mobile ? 168 : 120 + points.length * 70;
   const safeTop = mobile ? 70 : 20;
   const bottomTop = Math.max(safeTop, height - (mobile ? 112 : 122) - railHeight);
   const lift = Math.max(0, bottomTop - safeTop);
@@ -31,12 +32,15 @@ export function radarPlacement(
         { side: "left" as const, x: left, lift: 0 },
         { side: "left" as const, x: left, lift },
       ]
-    : [
-        { side: "right" as const, x: right, lift: 0 },
-        { side: "left" as const, x: left, lift: 0 },
-        { side: "right" as const, x: right, lift },
-        { side: "left" as const, x: left, lift },
-      ];
+    : [0, lift].flatMap((height) => [
+        { side: "right" as const, x: right, lift: height },
+        { side: "left" as const, x: left, lift: height },
+        ...[64, 128].map((shift) => ({
+          side: "right" as const,
+          x: Math.max(12, Math.min(right + shift, width - railWidth - LABEL_RIGHT_INSET)),
+          lift: height,
+        })),
+      ]);
   const nav = mobile
     ? { left: 12, top: 14, right: Math.min(width - 80, 310), bottom: 64 }
     : { left: 20, top: 20, right: 340, bottom: 85 };
@@ -47,23 +51,26 @@ export function radarPlacement(
       right: option.x + railWidth,
       bottom: bottomTop - option.lift + railHeight,
     };
-    return (
-      overlap(box, nav) * 2 +
-      points.reduce(
+    const markerOverlap = (markers: Point[], radius: number) =>
+      markers.reduce(
         (sum, point) =>
           sum +
           overlap(box, {
-            left: point.x - 38,
-            top: point.y - 38,
-            right: point.x + 38,
-            bottom: point.y + 38,
+            left: point.x - radius,
+            top: point.y - radius,
+            right: point.x + radius,
+            bottom: point.y + radius,
           }),
         0,
-      )
-    );
+      );
+    return overlap(box, nav) * 2 + markerOverlap(points, 38) * 4 + markerOverlap(otherPoints, 28);
   };
   const best = options.reduce((a, b) => (score(b) < score(a) ? b : a));
-  return { side: best.side, lift: Math.round(best.lift) };
+  return {
+    side: best.side,
+    lift: Math.round(best.lift),
+    shift: mobile ? 0 : Math.round(best.x - (best.side === "right" ? right : left)),
+  };
 }
 
 export const LABEL_RIGHT_INSET = 76;

@@ -70,6 +70,25 @@ describe("Trayectoria e inercia", () => {
     expect(b.points[12]!.x).toBeLessThan(200);
     expect(simulateThrow(base).points.every((p) => p.x === 200)).toBe(true);
   });
+  it("reconoce un impacto aunque la Ball alcance el objetivo al bajar", () => {
+    const flight = simulateThrow({
+      ...base,
+      velocity: { x: -200, y: -550 },
+      spin: 1,
+      radius: 35,
+    });
+    expect(flight.hit).toBe(true);
+    expect(Math.hypot(flight.impact.x - 200, flight.impact.y - 110)).toBeLessThan(35);
+  });
+  it("detecta el impacto entre fotogramas cuando el lanzamiento es rápido", () => {
+    const flight = simulateThrow({
+      ...base,
+      velocity: { x: 0, y: -1250 },
+      radius: 3,
+    });
+    expect(flight.hit).toBe(true);
+    expect(flight.impact.y).toBeCloseTo(110);
+  });
   it("los movimientos circulares acumulan giro que decae al dejar de girar", () => {
     let spin = 0;
     const moves = [

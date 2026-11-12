@@ -443,14 +443,19 @@ function MapInstance(props: MapViewProps & { onRetry: () => void }) {
     const place = () => {
       const container = map.getContainer();
       const points = radarEntries.map((entry) => map.project(entry.coordinates));
-      onRadarLayout(radarPlacement(points, container.clientWidth, container.clientHeight, mobile));
+      const otherPoints = sightings
+        .filter((entry) => !radarEntries.some((target) => target.key === entry.key))
+        .map((entry) => map.project(entry.coordinates));
+      onRadarLayout(
+        radarPlacement(points, container.clientWidth, container.clientHeight, mobile, otherPoints),
+      );
     };
     place();
     map.on("resize", place);
     return () => {
       map.off("resize", place);
     };
-  }, [map, radarEntries, onRadarLayout, mobile]);
+  }, [map, radarEntries, sightings, onRadarLayout, mobile]);
   const groups = useMemo(() => {
     const fixed = sightings.filter(
       (entry) =>

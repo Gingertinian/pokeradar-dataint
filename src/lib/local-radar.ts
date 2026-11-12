@@ -4,7 +4,14 @@ import {
   type ExpeditionSighting,
   type Habitat,
 } from "./destinations";
-import { isWithinBounds, seededRandom, type Coordinate, type MapBounds } from "./geography";
+import {
+  distanceInMeters,
+  isWithinBounds,
+  seededRandom,
+  worldPixel,
+  type Coordinate,
+  type MapBounds,
+} from "./geography";
 import type { TerrainSample } from "./map-terrain";
 import type { Weather } from "./weather";
 
@@ -23,6 +30,31 @@ export type RadarView = {
   zoom: number;
   terrain?: TerrainSample[];
 };
+export function radarTargets(
+  entries: ExpeditionSighting[],
+  origin: Coordinate,
+  zoom: number,
+  discovered: ReadonlySet<string> = new Set(),
+) {
+  const nearest = [...entries].sort((a, b) => {
+    const discoveryPriority = Number(discovered.has(a.key)) - Number(discovered.has(b.key));
+    return (
+      discoveryPriority ||
+      distanceInMeters(a.coordinates, origin) - distanceInMeters(b.coordinates, origin)
+    );
+  });
+  const targets: ExpeditionSighting[] = [];
+  const positions: Coordinate[] = [];
+  for (const entry of nearest) {
+    const point = worldPixel(entry.coordinates, zoom);
+    if (positions.some((other) => Math.hypot(point[0] - other[0], point[1] - other[1]) < 64))
+      continue;
+    targets.push(entry);
+    positions.push(point);
+    if (targets.length === 3) break;
+  }
+  return targets;
+}
 export function viewSeed(view: RadarView | null): number {
   if (!view) return 0;
   return (

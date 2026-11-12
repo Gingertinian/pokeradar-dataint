@@ -80,9 +80,21 @@ export function simulateThrow({
     launchUp = vy < -120 * scale;
   let bestDistance = Infinity,
     bestIndex = 0,
-    checked = false;
+    bestTime = 0,
+    bestPoint = start;
   const dt = 1 / 60;
+  const impact = (): Flight => {
+    const path = [...points.slice(0, bestIndex), bestPoint];
+    return {
+      points: path,
+      impact: bestPoint,
+      hit: true,
+      duration: clamp(bestTime, 0.42, 1.4),
+      spin,
+    };
+  };
   for (let frame = 0; frame < 84; frame++) {
+    const previous = { x, y };
     const ax = -spin * vy * 1.05;
     vx += ax * dt;
     vy += 620 * scale * dt;
@@ -90,26 +102,27 @@ export function simulateThrow({
     y += vy * dt;
     time += dt;
     points.push({ x, y });
-    const distance = Math.hypot(x - target.x, y - target.y);
-    if (launchUp && time > 0.07 && distance < bestDistance) {
-      bestDistance = distance;
-      bestIndex = points.length - 1;
-    }
-    if (!checked && launchUp && time > 0.08 && (y <= target.y || vy >= 0)) {
-      checked = true;
-      if (bestDistance <= radius) {
-        const path = points.slice(0, bestIndex + 1);
-        return {
-          points: path,
-          impact: path[path.length - 1]!,
-          hit: true,
-          duration: clamp(bestIndex * dt, 0.42, 0.95),
-          spin,
-        };
+    if (launchUp && time > 0.07) {
+      const dx = x - previous.x,
+        dy = y - previous.y,
+        length = dx * dx + dy * dy;
+      const along = length
+        ? clamp(((target.x - previous.x) * dx + (target.y - previous.y) * dy) / length, 0, 1)
+        : 0;
+      const nearest = { x: previous.x + dx * along, y: previous.y + dy * along };
+      const distance = Math.hypot(nearest.x - target.x, nearest.y - target.y);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestIndex = points.length - 1;
+        bestPoint = nearest;
+        bestTime = time - dt + dt * along;
       }
+      if (bestDistance <= radius && Math.hypot(x - target.x, y - target.y) > bestDistance + 0.001)
+        return impact();
     }
     if (time > 0.15 && (y > height + 70 || x < -90 || x > width + 90)) break;
   }
+  if (bestDistance <= radius) return impact();
   return {
     points,
     impact: points[points.length - 1]!,

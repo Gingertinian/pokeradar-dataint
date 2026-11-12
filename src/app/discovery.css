@@ -1,6 +1,6 @@
 .hud-world .field-console > .radar-findings {
   position: absolute;
-  right: 56px;
+  right: calc(56px - var(--radar-shift, 0px));
   bottom: calc(100% + 14px + var(--radar-lift, 0px));
   width: min(320px, calc(100% - 56px));
   margin: 0;
@@ -8,7 +8,7 @@
   border-color: #a4c9c766;
 }
 .hud-world .field-console[data-radar-side="left"] > .radar-findings {
-  left: 0;
+  left: var(--radar-shift, 0px);
   right: auto;
 }
 .hud-world .radar-findings > header {
@@ -21,7 +21,7 @@
   gap: 7px;
   color: #a1c1c5;
   font:
-    500 9px "IBM Plex Mono",
+    500 10px "IBM Plex Mono",
     monospace;
   letter-spacing: 0.08em;
 }
@@ -47,8 +47,8 @@
   grid-template-columns: 25px 42px minmax(0, 1fr);
   grid-template-rows: 1fr;
   gap: 8px;
-  min-height: 55px;
-  padding: 4px 8px;
+  min-height: 64px;
+  padding: 6px 8px;
   text-align: left;
   border: 1px solid #b3d3d22e;
   border-left: 2px solid color-mix(in srgb, var(--signal-color) 70%, #c0e5d7);
@@ -70,7 +70,7 @@
   min-height: 0;
   color: #a9c2ca;
   font:
-    500 9px "IBM Plex Mono",
+    500 10px "IBM Plex Mono",
     monospace;
   letter-spacing: 0.06em;
 }
@@ -92,7 +92,7 @@
   min-width: 0;
 }
 .hud-world .radar-card-copy strong {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
 }
 .radar-card-type {
@@ -100,14 +100,14 @@
   overflow: hidden;
   margin-top: 4px;
   color: #b4cbd1;
-  font-size: 10px;
+  font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 .hud-world .radar-card-copy small {
   margin-top: 4px;
   color: #d6e8e5;
-  font-size: 10px;
+  font-size: 11px;
 }
 .hud-world .radar-card-copy small svg:last-child {
   margin-left: auto;
@@ -116,7 +116,7 @@
   margin: 7px 0 0;
   padding: 0;
   color: #b5cbd0;
-  font-size: 11px;
+  font-size: 12px;
   text-align: left;
 }
 .radar-touch-hint {

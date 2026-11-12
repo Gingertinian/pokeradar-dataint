@@ -26,7 +26,7 @@ export function HabitatScene({
           alt=""
           fill
           sizes="(max-aspect-ratio: 3/2) 150vh, 100vw"
-          priority
+          loading="eager"
           quality={85}
           className="habitat-art"
         />

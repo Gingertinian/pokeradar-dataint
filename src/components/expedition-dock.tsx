@@ -41,7 +41,12 @@ export function ExpeditionDock(p: Props) {
       data-detail-open={p.detailOpen}
       data-scanning={p.scanning}
       data-radar-side={p.radarLayout.side}
-      style={{ "--radar-lift": `${p.radarLayout.lift}px` } as React.CSSProperties}
+      style={
+        {
+          "--radar-lift": `${p.radarLayout.lift}px`,
+          "--radar-shift": `${p.radarLayout.shift}px`,
+        } as React.CSSProperties
+      }
     >
       <AnimatePresence>
         {p.findings && (

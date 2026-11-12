@@ -27,11 +27,16 @@ import { ExpeditionDock } from "@/components/expedition-dock";
 import { terrainFingerprint, type TerrainSample } from "@/lib/map-terrain";
 import type { CaptureDetails } from "@/lib/journal";
 import { sightingCoordinate } from "@/lib/journal";
-import { parseSharedCamera, writeSharedCamera, type SharedCamera } from "@/lib/camera-link";
+import {
+  parseSharedCamera,
+  reachedDestination,
+  writeSharedCamera,
+  type SharedCamera,
+} from "@/lib/camera-link";
 import { readNavigation } from "@/lib/navigation";
 import type { ExpeditionSighting } from "@/lib/destinations";
 import { useLivingEncounters } from "@/hooks/use-living-encounters";
-import { localSightings, viewSeed, type RadarView } from "@/lib/local-radar";
+import { localSightings, radarTargets, viewSeed, type RadarView } from "@/lib/local-radar";
 import { MapControls, type CameraCommand } from "@/components/map/map-controls";
 import { CompareDialog } from "@/components/compare-dialog";
 import { PokemonDetailPanel } from "@/components/pokemon-detail";
@@ -60,6 +65,7 @@ import {
 import {
   boundsFingerprint,
   distanceInMeters,
+  isNearBounds,
   isWithinBounds,
   type Coordinate,
   type MapBounds,
@@ -129,7 +135,11 @@ export function Explorer({
     origin: Coordinate;
     viewCenter: Coordinate;
   } | null>(null);
-  const [radarLayout, setRadarLayout] = useState<RadarPlacement>({ side: "right", lift: 0 });
+  const [radarLayout, setRadarLayout] = useState<RadarPlacement>({
+    side: "right",
+    lift: 0,
+    shift: 0,
+  });
   const [atmospherePreview, setAtmospherePreview] = useState<AtmospherePreview>("live");
   const [scanOrigin, setScanOrigin] = useState<Coordinate | null>(null);
   const [scanKey, setScanKey] = useState(0);
@@ -139,7 +149,8 @@ export function Explorer({
   const site = getDestination(siteId) ?? DEFAULT_DESTINATION;
   const region = getRegion(regionId);
   const [camera, setCamera] = useState<RadarView>({
-    coordinates: site.area.center,
+    coordinates:
+      initialScope === "site" ? (initialCamera?.coordinates ?? site.area.center) : site.area.center,
     bounds: site.area.bounds,
     zoom: 0,
   });
@@ -154,6 +165,14 @@ export function Explorer({
   const reduced = useReducedMotion();
   const scanTimer = useRef<number | undefined>(undefined);
   const pendingRevisit = useRef<SharedCamera | null>(null);
+  const pendingDestination = useRef<{ coordinates: Coordinate; minZoom: number } | null>(
+    initialScope === "site"
+      ? {
+          coordinates: initialCamera?.coordinates ?? site.area.center,
+          minZoom: initialCamera ? Math.max(2.8, initialCamera.zoom - 0.5) : 12,
+        }
+      : null,
+  );
   const selectionLocked = useRef(false);
   useEffect(() => {
     selectionLocked.current = selectedId !== null || encounterId !== null;
@@ -253,7 +272,7 @@ export function Explorer({
     isWithinBounds(entry.coordinates, camera.bounds),
   ).length;
   const awayFromSite =
-    scope === "site" && camera.zoom > 0 && !isWithinBounds(camera.coordinates, site.viewBounds);
+    scope === "site" && camera.zoom > 0 && !isNearBounds(camera.coordinates, site.viewBounds, 200);
   const detailOpen = selectedId !== null;
   const scanning = scanOrigin !== null;
   const closeDetail = useCallback(() => {
@@ -273,6 +292,13 @@ export function Explorer({
   }, [detailReturn, selectedId]);
   const onCameraMove = useCallback(
     (coordinates: Coordinate, zoom: number, bounds: MapBounds, terrain?: TerrainSample[]) => {
+      const destination = pendingDestination.current;
+      if (
+        destination &&
+        !reachedDestination({ coordinates, zoom }, destination.coordinates, destination.minZoom)
+      )
+        return;
+      pendingDestination.current = null;
       setCamera({ coordinates, bounds, zoom, terrain });
       const url = new URL(window.location.href);
       const linked = parseSharedCamera(Object.fromEntries(url.searchParams));
@@ -310,6 +336,7 @@ export function Explorer({
     setCameraMoving(moving);
     if (moving) {
       if (userInitiated) {
+        pendingDestination.current = null;
         pendingRevisit.current = null;
         const url = new URL(window.location.href);
         for (const key of ["lng", "lat", "zoom"]) url.searchParams.delete(key);
@@ -362,6 +389,7 @@ export function Explorer({
   }
   function resetIntent() {
     pendingRevisit.current = null;
+    pendingDestination.current = null;
     resumeScan.current = null;
     setDepartedIds([]);
     setRadarFindings(null);
@@ -446,6 +474,7 @@ export function Explorer({
       });
     resetIntent();
     pendingRevisit.current = location ? { coordinates: location, zoom: 16 } : null;
+    pendingDestination.current = { coordinates: location ?? destination.area.center, minZoom: 12 };
     setRegionId(destination.regionId);
     setSiteId(id);
     setScope("site");
@@ -471,6 +500,15 @@ export function Explorer({
     const onPop = () => {
       const route = readNavigation(Object.fromEntries(new URLSearchParams(window.location.search)));
       resetIntent();
+      if (route.scope === "site") {
+        const destination = getDestination(route.siteId) ?? DEFAULT_DESTINATION;
+        const coordinates = route.camera?.coordinates ?? destination.area.center;
+        pendingDestination.current = {
+          coordinates,
+          minZoom: route.camera ? Math.max(2.8, route.camera.zoom - 0.5) : 12,
+        };
+        setCamera({ coordinates, bounds: destination.area.bounds, zoom: route.camera?.zoom ?? 16 });
+      }
       setRegionId(route.regionId);
       setSiteId(route.siteId);
       setScope(route.scope);
@@ -684,12 +722,7 @@ export function Explorer({
     const matching = candidates.filter((entry) =>
       matchesFilters(entry.pokemon, filters, discovered.has(entry.key)),
     );
-    const unseen = matching.filter((entry) => !discovered.has(entry.key));
-    const targets = (unseen.length ? unseen : matching)
-      .sort(
-        (a, b) => distanceInMeters(a.coordinates, origin) - distanceInMeters(b.coordinates, origin),
-      )
-      .slice(0, 3);
+    const targets = radarTargets(matching, origin, view.zoom, discovered);
     setRadarView(view);
     setSelectedId(null);
     setPanelView("signals");
@@ -785,7 +818,7 @@ export function Explorer({
           aria-label="PokéRadar, abrir atlas de Argentina"
         >
           <span className="brand-image">
-            <Image src="/brand/pokeradar-logo.png" alt="" width={52} height={52} priority />
+            <Image src="/brand/pokeradar-logo.png" alt="" width={52} height={52} loading="eager" />
           </span>
           <h1 className="brand-name">
             Poké<span>Radar</span>
@@ -961,6 +994,7 @@ export function Explorer({
             onRecenter={recenter}
             onCamera={(action) => {
               pendingRevisit.current = null;
+              pendingDestination.current = null;
               if (action !== "north") {
                 const url = new URL(window.location.href);
                 for (const key of ["lng", "lat", "zoom"]) url.searchParams.delete(key);

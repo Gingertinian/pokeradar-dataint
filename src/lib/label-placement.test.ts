@@ -34,7 +34,7 @@ describe("Etiquetas de destinos", () => {
 });
 
 describe("Ubicación del radar", () => {
-  it("eleva el panel si así deja visibles los rastros cercanos al borde inferior", () => {
+  it("despeja los rastros cercanos al borde inferior", () => {
     const placement = radarPlacement(
       [
         { x: 470, y: 350 },
@@ -45,7 +45,7 @@ describe("Ubicación del radar", () => {
       582,
     );
     expect(placement.side).toBe("right");
-    expect(placement.lift).toBeGreaterThan(0);
+    expect(placement.lift + placement.shift).toBeGreaterThan(0);
   });
   it("elige el lado libre si los rastros están en el lado derecho", () => {
     const placement = radarPlacement(
@@ -58,6 +58,34 @@ describe("Ubicación del radar", () => {
       582,
     );
     expect(placement.side).toBe("left");
+  });
+  it("desplaza el panel cuando tapa un rastro al entrar al glaciar", () => {
+    const placement = radarPlacement(
+      [
+        { x: 687, y: 340 },
+        { x: 526, y: 292 },
+        { x: 460, y: 396 },
+      ],
+      1280,
+      652,
+    );
+    expect(placement.side).toBe("right");
+    expect(placement.shift).toBeGreaterThanOrEqual(64);
+  });
+  it("también evita tapar señales cercanas que no son resultados del radar", () => {
+    const placement = radarPlacement(
+      [
+        { x: 687, y: 340 },
+        { x: 526, y: 292 },
+        { x: 460, y: 396 },
+      ],
+      1280,
+      652,
+      false,
+      [{ x: 738, y: 461 }],
+    );
+    expect(placement.side).toBe("right");
+    expect(placement.shift).toBeGreaterThanOrEqual(128);
   });
   it("eleva la tarjeta móvil cuando los rastros están en la parte inferior", () => {
     const placement = radarPlacement(

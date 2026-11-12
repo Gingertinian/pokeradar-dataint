@@ -129,10 +129,12 @@ navegación peatonal.
 
 Los terrenos y senderos iniciales proceden de OpenStreetMap. El radar amplía la
 exploración usando cobertura y uso de suelo de las teselas visibles de OpenFreeMap,
-también en satélite. Excluye agua, cauces, edificios e hielo cartografiado y no
-interpreta la ausencia de datos como suelo válido. Los destinos conocidos siguen
-siendo el respaldo cuando esa cobertura no está disponible. La superposición de
-límites se retiró de la interfaz; la cartografía no acredita acceso peatonal.
+también en satélite. Al clasificar terreno, excluye agua, cauces, edificios e
+hielo cartografiado y requiere cobertura identificable. Cuando no encuentra
+terreno elegible, utiliza puntos de referencia del destino si están en la vista
+y no se detecta agua, cauces ni edificios en ellos. Ese respaldo no garantiza
+que todas las superficies estén clasificadas. La cartografía no acredita acceso
+peatonal.
 
 Los datos y fuentes se conservan en `src/data/destinations.json`. La distribución
 se calcula a partir del destino, día, número de búsqueda y afinidad climática.

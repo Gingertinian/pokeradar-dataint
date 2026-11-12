@@ -169,10 +169,19 @@ export function isWithinBounds(
   return longitude >= west && longitude <= east && latitude >= south && latitude <= north;
 }
 
+export function isNearBounds(point: Coordinate, bounds: MapBounds, tolerance: number): boolean {
+  const [west, south, east, north] = bounds;
+  const nearest: Coordinate = [
+    Math.max(west, Math.min(east, point[0])),
+    Math.max(south, Math.min(north, point[1])),
+  ];
+  return distanceInMeters(point, nearest) <= tolerance;
+}
+
 type Located = { key: string; coordinates: Coordinate };
 export type EncounterCluster<T> = { key: string; coordinates: Coordinate; items: T[] };
 
-function worldPixel([longitude, latitude]: Coordinate, zoom: number): Coordinate {
+export function worldPixel([longitude, latitude]: Coordinate, zoom: number): Coordinate {
   const size = 512 * 2 ** zoom;
   const sine = Math.sin((latitude * Math.PI) / 180);
   return [
