@@ -1,0 +1,672 @@
+.hud-world {
+  --surface: #142735;
+  --surface-raised: #1c3545;
+  --surface-soft: #192f3e;
+  --line: #405563;
+  --text: #eef4f5;
+  --subtext: #adc1cc;
+}
+.hud-world[data-period] .app-header {
+  background: #10212e;
+  border-color: #304552;
+}
+.hud-world .brand-image {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.hud-world .brand-image img {
+  transform: scale(1.27);
+}
+.hud-world .brand-edition {
+  color: #94aab7;
+  letter-spacing: 1px;
+}
+.hud-world .main-navigation > button {
+  border-radius: 7px;
+  border: 1px solid transparent;
+}
+.hud-world .main-navigation > button.is-active {
+  background: #283f4e;
+  border-color: #526773;
+  box-shadow: none;
+}
+.hud-world
+  :is(
+    .location-trail,
+    .game-map-controls,
+    .game-settings-panel,
+    .pokemon-detail,
+    .field-console-bar,
+    .radar-findings,
+    .destination-map-marker,
+    .atlas-region-marker
+  ) {
+  box-shadow: none;
+  border: 1px solid #c9dce427;
+}
+.hud-world
+  :is(
+    .location-trail,
+    .game-map-controls,
+    .game-settings-panel,
+    .field-console-bar,
+    .field-console > .radar-findings,
+    .pokemon-detail
+  ) {
+  background: rgba(17, 36, 47, 0.91);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+  backdrop-filter: blur(18px) saturate(120%);
+}
+.hud-world .pokemon-detail {
+  overflow: hidden;
+}
+.hud-world .pokemon-art-stage {
+  background: color-mix(in srgb, var(--art-accent) 14%, #18313d);
+  border: 1px solid #ffffff1c;
+  border-radius: 8px;
+}
+.hud-world .expedition-sightings > li:is(:hover, .is-hovered, .is-selected) {
+  background: #284452;
+  box-shadow: none;
+}
+.hud-world .art-action,
+.hud-world .art-sound {
+  background: #142a35d9;
+  color: #e2eef0;
+  border: 1px solid #d8eeee30;
+}
+.hud-world :is(.detail-scroll, .detail-bottom) {
+  background: transparent;
+}
+.hud-world
+  :is(
+    .location-trail,
+    .game-map-controls,
+    .game-settings-panel,
+    .pokemon-detail,
+    .field-console-bar,
+    .field-console > .radar-findings
+  ) {
+  border-radius: 12px;
+}
+.hud-world
+  :is(
+    .field-radar-button,
+    .capture-primary,
+    .capture-seal,
+    .ball-choices button[aria-pressed="true"],
+    .collection-mode button,
+    .journal-view-toggle button,
+    .destination-card,
+    .expedition-sighting,
+    .atlas-region-card
+  ) {
+  box-shadow: none;
+}
+.hud-world .field-radar-button {
+  border: 1px solid #ffb2af;
+}
+.hud-world .field-radar-orbit {
+  border-color: #d6e6e94a;
+}
+.hud-world .field-console {
+  width: min(820px, calc(100% - 56px));
+  bottom: 24px;
+  container: expedition-console / inline-size;
+}
+.hud-world .field-console-bar {
+  min-height: 78px;
+  padding: 9px 16px;
+  gap: 20px;
+}
+.hud-world .field-console-tools button {
+  background: transparent;
+  border-color: #c6dce02e;
+  border-radius: 7px;
+}
+.hud-world .field-console-tools button:hover {
+  background: #ffffff12;
+}
+.field-empty-action {
+  border: 0;
+  background: none;
+  color: #b7e0d3;
+  padding: 5px 0 0;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.field-radar-action {
+  min-width: 0;
+}
+@container expedition-console (max-width: 650px) {
+  .field-companion {
+    flex: 0 0 auto;
+  }
+  .field-companion > span:last-child {
+    display: none;
+  }
+  .field-console-tools .field-affinity > span {
+    display: none;
+  }
+  .hud-world .field-console-bar {
+    gap: 12px;
+  }
+}
+.field-filter-count {
+  color: #e4f5e9;
+  font-size: 10px;
+  line-height: 1;
+  padding: 3px 5px;
+  border: 1px solid #99c5b177;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.hud-world .app-toast {
+  bottom: calc(116px + env(safe-area-inset-bottom));
+  background: #142b37f2;
+  border: 1px solid #a4c7c941;
+  color: #e4f2ef;
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+}
+.hud-world .app-toast svg {
+  color: #9ad8b9;
+}
+.affinity-buddy {
+  display: none;
+}
+.hud-world .field-console-tools button[aria-pressed="true"] {
+  background: #d6e8e4;
+  border-color: #d6e8e4;
+  color: #183b3c;
+}
+.signals-shortcut {
+  color: #a9bec8;
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  padding: 2px 5px;
+  border: 1px solid #a9bec850;
+  border-radius: 4px;
+}
+.team-lead-control {
+  position: absolute;
+  right: 57px;
+  bottom: 10px;
+  background: transparent;
+  border: 1px solid #7898a366;
+  color: #c4d9dc;
+  border-radius: 5px;
+  padding: 4px 7px;
+  font-size: 10px;
+}
+.team-lead-control[aria-pressed="true"] {
+  color: #9fd8c3;
+  border-color: #81b9a477;
+}
+.hud-world .immersive-encounter .encounter-identity {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  text-shadow: 0 1px 9px #10232abf;
+}
+.hud-world .immersive-encounter .encounter-identity h2 {
+  color: #fff;
+  text-shadow: 0 2px 12px #10232ac7;
+}
+.hud-world .immersive-encounter .encounter-eyebrow {
+  color: #e2eded;
+  letter-spacing: 1.1px;
+}
+.hud-world .immersive-encounter .encounter-back {
+  border-radius: 8px;
+  background: #132936aa;
+}
+.hud-world .capture-seal {
+  background: #12352fe8;
+  border: 1px solid #95d6b4;
+  color: #d9f8e9;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: none;
+}
+.assisted-aim-preview {
+  position: absolute;
+  z-index: 6;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e6fff2;
+  border-radius: 50%;
+  background: #18483a88;
+  translate: -50% -50%;
+  pointer-events: none;
+  transition:
+    left 120ms ease-out,
+    top 120ms ease-out;
+}
+.assisted-aim-preview::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: #e6fff2;
+}
+.immersive-encounter .keyboard-aim label > small {
+  display: block;
+  color: #b8ced7;
+  min-height: 14px;
+}
+.assisted-aim-note {
+  grid-column: 1 / -1;
+  margin: -6px 0 0;
+  color: #b8ced7;
+  font-size: 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .assisted-aim-preview {
+    transition: none;
+  }
+}
+.hud-world .immersive-encounter .ball-choices button[aria-pressed="true"],
+.hud-world .immersive-encounter .capture-primary {
+  box-shadow: none;
+}
+.hud-world :is(button, input, select, summary):focus:not(:focus-visible) {
+  outline: none;
+}
+.hud-world :is(button, input, select, summary):focus-visible {
+  outline: 2px solid #b3e1d2;
+  outline-offset: 2px;
+}
+.quick-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  overflow: visible;
+  padding: 12px 1px 3px;
+}
+.quick-types > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  border: 1px solid #ffffff21;
+  background: transparent;
+  border-radius: 6px;
+  padding: 7px 9px;
+  color: #c6d5dc;
+  font-size: 11px;
+}
+.quick-types > button > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.quick-types > button:hover {
+  border-color: #a8bdc7;
+  color: #fff;
+}
+.quick-types > button[aria-pressed="true"] {
+  background: #d6e8e4;
+  border-color: #d6e8e4;
+  color: #183b3c;
+}
+.hud-world .advanced-filters .type-filter-grid button {
+  background: transparent;
+  color: #c5d5dc;
+  border: 1px solid #b4cbd239;
+  font-size: 11px;
+}
+.hud-world .advanced-filters {
+  max-height: clamp(140px, calc(100dvh - 535px), 280px);
+}
+.hud-world .stat-range-error {
+  margin: 8px 0 0;
+  color: #ffd5c7;
+  font-size: 11px;
+  line-height: 1.4;
+}
+.hud-world .compare-dialog {
+  border: 1px solid #69818a66;
+  box-shadow: none;
+  scrollbar-color: #617c88 transparent;
+  scrollbar-width: thin;
+}
+@media (min-width: 761px) {
+  .hud-world .compare-inner > header {
+    padding-bottom: 16px;
+  }
+  .hud-world .comparison-species {
+    padding: 16px 0 18px;
+  }
+  .hud-world .comparison-species img {
+    height: min(130px, 16vh);
+  }
+  .hud-world .comparison-species label,
+  .hud-world .comparison-species > div > small,
+  .hud-world .comparison-stat strong,
+  .hud-world .compare-note {
+    font-size: 11px;
+  }
+  .hud-world .comparison-species select {
+    font-size: 13px;
+  }
+  .hud-world .comparison-stat {
+    padding: 7px 0;
+  }
+  .hud-world .compare-note {
+    margin-top: 16px;
+  }
+}
+.hud-world .about-dialog {
+  border-color: #69818a66;
+  box-shadow: none;
+  scrollbar-color: #617c88 transparent;
+  scrollbar-width: thin;
+}
+.about-guide {
+  margin-top: 22px;
+  border-top: 1px solid #78919a4d;
+}
+.about-guide > details {
+  border-bottom: 1px solid #78919a4d;
+}
+.about-guide > details > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 0;
+  color: #edf6f6;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.about-guide > details > summary::-webkit-details-marker {
+  display: none;
+}
+.about-guide > details[open] > summary svg {
+  transform: rotate(180deg);
+}
+.about-guide > details > p {
+  margin: 0 0 13px;
+}
+.hud-world .about-sources {
+  border-color: #78919a4d;
+  margin-top: 10px;
+}
+.hud-world :is(.about-sources a, .asset-credit-list a) {
+  color: #b8e6d3;
+}
+.hud-world .asset-credit-list {
+  color: #b7cbd1;
+}
+.hud-world .compare-inner > header {
+  border-color: #78919a4d;
+}
+.hud-world .comparison-species select {
+  background: #203b49;
+  border-color: #6b8792;
+  color: #f1f7f8;
+  color-scheme: dark;
+}
+.hud-world .comparison-species :is(label, small),
+.hud-world .comparison-stat strong,
+.hud-world .compare-note {
+  color: #c4d6dc;
+}
+.hud-world .comparison-stat {
+  border-color: #708b9740;
+}
+.hud-world .comparison-stat > span {
+  color: #c4d6dc;
+}
+.hud-world .comparison-stat > span.is-higher {
+  color: #a5e5c3;
+  font-weight: 700;
+}
+.hud-world .comparison-bars > span {
+  background: #3a5260;
+}
+.hud-world .panel-empty {
+  color: #adc1cc;
+}
+.hud-world .panel-empty h3 {
+  color: #eef4f5;
+}
+.hud-world .panel-empty .secondary-button {
+  background: #203b49;
+  border-color: #6b8792;
+  color: #eef4f5;
+}
+.mission-complete {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #78919a4d;
+}
+.hud-world .mission-complete p {
+  margin: 0 0 10px;
+  color: #c1d6d2;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.mission-complete button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid #719b8d;
+  border-radius: 6px;
+  background: #25483f;
+  color: #e0f4e9;
+  font-size: 11px;
+  font-weight: 600;
+}
+.mission-complete button:hover {
+  background: #325d4e;
+}
+.hud-world .journal-entries li {
+  display: flex;
+  align-items: stretch;
+}
+.hud-world .journal-entries li > button:first-child {
+  flex: 1;
+  min-width: 0;
+}
+.hud-world .journal-entries .journal-revisit {
+  flex: 0 0 40px;
+  width: 40px;
+  justify-content: center;
+  padding: 0;
+  color: #b8e6d3;
+  border-left: 1px solid #78919a33;
+}
+.hud-world .journal-entries .journal-revisit:hover {
+  background: #294552;
+}
+@media (min-width: 761px) {
+  .hud-world .journal-entries small {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .hud-world .mission-goal p {
+    font-size: 11px;
+  }
+  .hud-world .mission-goal strong {
+    font-size: 10px;
+  }
+  .hud-world .collection-grid > button > .mono {
+    font-size: 9px;
+  }
+  .hud-world .region-card-copy > span,
+  .hud-world .destination-card-content small {
+    font-size: 11px;
+  }
+  .hud-world .destination-card-content p {
+    font-size: 11px;
+  }
+  .hud-world :is(.atlas-region-marker, .destination-map-marker) small {
+    font-size: 9px;
+  }
+}
+.hud-world .collection-search {
+  height: 38px;
+  margin-top: 12px;
+  padding: 0 11px;
+  border-color: #405d69;
+}
+.hud-world .collection-search:focus-within {
+  border-color: #9fc9bf;
+  box-shadow: none;
+}
+.hud-world .field-collection .collection-search-count {
+  margin: 7px 0 0;
+  color: #c4d6dc;
+  font-size: 11px;
+}
+@media (min-width: 761px) and (max-height: 700px) {
+  .hud-world .panel-topline {
+    padding-top: 10px;
+  }
+  .hud-world .panel-title {
+    padding-top: 4px;
+    padding-bottom: 10px;
+  }
+  .hud-world .panel-title p {
+    margin-top: 4px;
+  }
+  .hud-world .panel-weather {
+    padding-bottom: 5px;
+  }
+  .hud-world .panel-tabs > button {
+    padding-block: 9px;
+  }
+  .hud-world .expedition-filters {
+    padding-top: 9px;
+  }
+  .hud-world .expedition-panel-footer {
+    padding-block: 8px;
+  }
+}
+.advanced-filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 0 0;
+}
+.advanced-filter-actions .text-button {
+  margin: 0;
+  font-size: 11px;
+}
+.filter-results-button {
+  border: 1px solid #86b5aa;
+  background: #31584e;
+  color: #edfaf4;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.filter-results-button:hover {
+  background: #3b6b5d;
+}
+.hud-world .advanced-filters .type-filter-grid button[aria-pressed="true"] {
+  background: color-mix(in srgb, var(--type-color) 30%, #1b3440);
+  border-color: color-mix(in srgb, var(--type-color) 65%, #c7e1df);
+  color: #f3f9f8;
+}
+.hud-world :is(.advanced-filters, .expedition-panel-scroll, .detail-scroll) {
+  scrollbar-color: #617c88 transparent;
+  scrollbar-width: thin;
+}
+.hud-world .list-sort {
+  border-color: #405563;
+}
+.hud-world .unseen-toggle {
+  color: #b7cbd3;
+}
+.hud-world .unseen-toggle input {
+  accent-color: #99d1bb;
+}
+.hud-world .expedition-filters .search-field:focus-within {
+  border-color: #9fc9bf;
+  box-shadow: none;
+}
+.hud-world .search-field input:focus-visible {
+  outline: none;
+}
+.hud-world .search-field:has(input:focus-visible) {
+  outline: 2px solid #b3e1d2;
+  outline-offset: 1px;
+}
+@media (min-width: 1000px) {
+  .hud-world {
+    --sidebar: 350px;
+  }
+  .hud-world .app-header {
+    padding-inline: 28px;
+  }
+  .hud-world .expedition-panel {
+    border-right-color: #53636b;
+  }
+  .hud-world .panel-title h2 {
+    font-size: 27px;
+    line-height: 1.15;
+  }
+  .hud-world .panel-topline {
+    padding-top: 24px;
+  }
+  .hud-world .expedition-sighting-main {
+    padding-block: 10px;
+  }
+}
+@media (max-width: 760px) {
+  .field-console-tools .field-affinity {
+    position: relative;
+  }
+  .field-console-tools .field-affinity .affinity-buddy {
+    display: block;
+    width: 25px;
+    height: 25px;
+  }
+  .field-console-tools .field-affinity > svg {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    width: 12px;
+    height: 12px;
+    background: #20394c;
+    border-radius: 3px;
+  }
+  .signals-shortcut {
+    display: none;
+  }
+  .hud-world .field-console {
+    width: calc(100% - 24px);
+  }
+  .hud-world .immersive-encounter .encounter-identity {
+    padding: 0;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .hud-world
+    :is(
+      .location-trail,
+      .game-map-controls,
+      .game-settings-panel,
+      .field-console-bar,
+      .field-console > .radar-findings,
+      .pokemon-detail
+    ) {
+    background: #11242f;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

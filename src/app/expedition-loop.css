@@ -1,0 +1,289 @@
+.hud-world .atlas-region-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 116px;
+  min-height: 145px;
+  height: auto;
+  align-items: center;
+}
+.hud-world .region-card-copy {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none;
+  width: auto;
+  padding: 21px 0 21px 17px;
+}
+.hud-world .region-card-copy > strong {
+  max-width: 100%;
+  font-size: 22px;
+  line-height: 1.08;
+  overflow-wrap: normal;
+}
+.hud-world .region-card-copy > span {
+  max-width: 100%;
+  font-size: 10px;
+  line-height: 1.6;
+  padding-right: 4px;
+}
+.hud-world .region-card-pokemon {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+  align-self: end;
+  right: auto;
+  bottom: auto;
+  width: 116px;
+  height: 136px;
+  margin-right: -2px;
+}
+.radar-findings {
+  overflow: hidden;
+}
+.radar-findings > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #c2d0df;
+  font-size: 12px;
+  padding: 1px 2px 11px;
+}
+.radar-findings > header > button {
+  border: 0;
+  background: none;
+  color: #8ea6c0;
+  display: grid;
+  place-items: center;
+  padding: 3px;
+  width: 32px;
+  height: 32px;
+}
+.radar-findings > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+.radar-findings > div > button {
+  min-width: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #ffffff16;
+  border-radius: 12px;
+  background: #ffffff09;
+  padding: 4px 3px 9px;
+  color: #e1eaf3;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.radar-findings > div > button:hover {
+  background: #ffffff16;
+  border-color: #a5bed85e;
+}
+.radar-find-art {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  position: relative;
+}
+.radar-find-art img {
+  width: 58px;
+  height: 58px;
+}
+.radar-findings .is-unknown .radar-find-art img {
+  filter: brightness(0) invert(1);
+  opacity: 0.2;
+}
+.radar-find-art > svg {
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  color: #bfd1e2;
+}
+.radar-findings strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.radar-findings small {
+  font:
+    11px "IBM Plex Mono",
+    monospace;
+  color: #96afc7;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 5px;
+}
+.radar-findings > p {
+  font-size: 11px;
+  color: #b5c7d5;
+  text-align: center;
+  line-height: 1.5;
+  margin: 9px 0 13px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #ffffff12;
+}
+.map-stage[data-radar-results="true"] .mobile-results-button {
+  display: none;
+}
+.collection-capacity-note {
+  margin: 0;
+  padding: 8px 20px;
+  background: #eef3f9;
+  color: #6882a5;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+}
+.collection-mode {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #edf1f7;
+  border-radius: 8px;
+  margin: 12px 0 10px;
+}
+.collection-mode > button {
+  flex: 1;
+  border: 0;
+  background: none;
+  color: #8999b3;
+  font-size: 10px;
+  padding: 7px 2px;
+  border-radius: 5px;
+}
+.collection-mode > button[aria-pressed="true"] {
+  background: #fff;
+  color: #536e98;
+  box-shadow: 0 2px 5px #344c7610;
+}
+.collection-grid > button.is-collected {
+  background: #edf7f0;
+  border-color: #cee4d5;
+}
+.collection-grid > button.is-in-team {
+  box-shadow: inset 0 0 0 1px #b2c9ed;
+  background: #eef4ff;
+  border-color: #bfd0ec;
+}
+.collection-caught-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  color: #5f9d76;
+  opacity: 1 !important;
+}
+.collection-unknown-symbol {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  border: 1.5px solid #a4b0c5;
+  border-radius: 50%;
+  opacity: 0.25;
+  background: linear-gradient(to bottom, #a4b0c5 48%, transparent 49%);
+}
+.collection-unknown-symbol::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border: 1.5px solid #a4b0c5;
+  background: #f2f4fa;
+  border-radius: 50%;
+  left: 5px;
+  top: 5px;
+}
+.collection-empty {
+  padding: 28px 13px;
+  text-align: center;
+  color: #9baabd;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.collection-empty > svg {
+  margin: 0 auto 10px;
+}
+.collection-empty strong {
+  display: block;
+  font-size: 13px;
+  color: #6f83a0;
+}
+.hud-world .journal-view-toggle {
+  margin-top: 0;
+}
+.hud-world .journal-view-toggle > button,
+.hud-world .collection-mode > button {
+  min-height: 36px;
+  font-size: 11px;
+  color: #607592;
+}
+.hud-world .collection-generations > button {
+  min-height: 32px;
+  font-size: 10px;
+  color: #607592;
+}
+.hud-world .field-collection > p,
+.hud-world .collection-progress {
+  color: #71849e;
+  font-size: 11px;
+}
+.hud-world .collection-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+.hud-world .collection-grid > button {
+  height: 86px;
+  gap: 0;
+}
+.hud-world .collection-grid > button > .mono {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  bottom: auto;
+  font-size: 8px;
+  color: #8495ab;
+}
+.collection-species {
+  max-width: 100%;
+  padding: 0 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 9px;
+  font-weight: 500;
+  color: #526b8b;
+}
+.hud-world .capture-actions {
+  padding-top: 3px;
+}
+.hud-world .capture-actions .capture-secondary {
+  font-size: 12px;
+  color: #5e7d9f;
+  padding: 9px;
+}
+@media (max-width: 760px) {
+  .hud-world .region-card-copy > strong {
+    font-size: 22px;
+  }
+  .hud-world .radar-findings strong {
+    font-size: 12px;
+  }
+  .hud-world .radar-findings > header {
+    font-size: 12px;
+  }
+  .hud-world .collection-mode > button,
+  .hud-world .collection-generations > button,
+  .hud-world .journal-view-toggle > button {
+    min-height: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .radar-findings > div > button {
+    transition: none;
+  }
+}

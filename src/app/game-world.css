@@ -1,0 +1,926 @@
+.hud-world {
+  --game-navy: #15283a;
+  --game-red: #f05c68;
+  --game-mint: #a1e2c5;
+}
+.hud-world[data-period] .app-header {
+  background: #142637;
+  border-color: #263c4e;
+}
+.hud-world .brand-name {
+  color: #fff;
+}
+.hud-world .brand-name > span {
+  color: #ff7782;
+}
+.hud-world .brand-image {
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px;
+}
+.hud-world .brand-edition {
+  color: #a9b9c7;
+}
+.hud-world .main-navigation > button {
+  color: #b1c3d2;
+  border-radius: 8px;
+}
+.hud-world .main-navigation > button.is-active {
+  background: #30485d;
+  box-shadow: inset 0 -2px #9cddc1;
+}
+.hud-world .header-tools .icon-button {
+  color: #bed0de;
+}
+.hud-world .header-tools .icon-button:hover {
+  background: #30485d;
+  color: white;
+}
+.hud-world .nav-team-count {
+  background: #344b60;
+  color: #d6e9f5;
+}
+.hud-world .location-trail {
+  border-radius: 12px;
+  box-shadow: 0 4px 18px #1d374920;
+}
+.hud-world .map-stage[data-scope="site"] > .mobile-results-button {
+  display: none;
+}
+.hud-world .site-map-caption {
+  display: none;
+}
+.field-console {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  width: min(850px, calc(100% - 56px));
+  pointer-events: none;
+}
+.field-console[data-detail-open="true"] {
+  display: none;
+}
+.field-console-bar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 10px 16px;
+  background: #162b3ef5;
+  border: 1px solid #7893a44d;
+  border-radius: 18px;
+  color: #f2f9fc;
+  box-shadow: 0 12px 40px #15283a33;
+  pointer-events: auto;
+}
+.field-console button {
+  cursor: pointer;
+}
+.field-companion {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 9px;
+  min-width: 0;
+  text-align: left;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+.companion-portrait {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  background: #294256;
+  border-radius: 50%;
+}
+.field-companion small {
+  display: block;
+  color: #91b7ca;
+  font:
+    8px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 1.1px;
+  margin-bottom: 5px;
+}
+.field-companion strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.field-radar-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1.8;
+}
+.field-radar-action > span {
+  min-width: 0;
+}
+.field-radar-action strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+.field-radar-action small {
+  display: block;
+  font-size: 11px;
+  color: #adc4d1;
+  margin-top: 5px;
+}
+.field-radar-button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border: 3px solid #ffe0d44d;
+  border-radius: 50%;
+  background: #ef5b65;
+  color: #fff;
+  box-shadow: 0 3px 0 #af3b48;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+.field-radar-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  background: #f7757d;
+}
+.field-radar-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.field-radar-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.field-radar-orbit {
+  position: absolute;
+  inset: -8px;
+  border: 1px solid #a3d8cb50;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.field-console[data-scanning="true"] .field-radar-orbit {
+  animation: field-radar-wave 0.85s ease-out infinite;
+}
+.field-console[data-scanning="true"] .field-radar-button > svg {
+  animation: field-radar-turn 1.4s linear infinite;
+}
+.field-console-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.field-console-tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 42px;
+  padding: 0 10px;
+  background: #ffffff0b;
+  color: #bdd0df;
+  border: 1px solid #ffffff15;
+  border-radius: 9px;
+  font-size: 11px;
+}
+.field-console-tools button:hover {
+  background: #ffffff1b;
+  color: #fff;
+}
+.field-console-tools button:disabled {
+  opacity: 0.4;
+}
+.field-console > .radar-findings {
+  pointer-events: auto;
+  width: min(480px, 100%);
+  margin: 0 auto 14px;
+  padding: 14px 16px 4px;
+  border: 1px solid #849daf55;
+  border-radius: 18px;
+  background: #162b3ff5;
+  box-shadow: 0 8px 30px #132f3a30;
+}
+.field-console .radar-findings > p {
+  border: 0;
+  margin-bottom: 4px;
+}
+.field-console .radar-findings > div > button {
+  padding: 4px 4px 10px;
+}
+.field-console .radar-find-art,
+.field-console .radar-find-art img {
+  width: 66px;
+  height: 66px;
+}
+.field-console .radar-findings .is-unknown .radar-find-art img {
+  opacity: 0.45;
+}
+.hud-world .encounter-marker {
+  transform-origin: 50% 75%;
+}
+.hud-world .encounter-foot {
+  background: #294a4459;
+  box-shadow: 0 0 0 4px #d5efc875;
+}
+.hud-world .encounter-cluster {
+  border: 2px solid #78b59a;
+  background: #f9fff5;
+  color: #2c615b;
+}
+
+.hud-world .immersive-encounter[open] {
+  display: grid;
+  grid-template-rows: minmax(260px, 1fr) auto auto;
+  gap: 0;
+  position: fixed;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  width: 100dvw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #15283a;
+  color: #fff;
+  animation: encounter-arrival 0.35s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+.hud-world .immersive-encounter::backdrop {
+  background: #15283a;
+  backdrop-filter: none;
+}
+.hud-world .immersive-encounter .encounter-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+  background: linear-gradient(#172e4b65, transparent);
+}
+.encounter-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ffffff3b;
+  background: #203d516b;
+  color: white;
+  padding: 11px 15px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.hud-world .encounter-header .encounter-place-header {
+  display: block;
+  color: #f5ffff;
+  text-align: center;
+  font:
+    600 13px "DM Sans",
+    sans-serif;
+  letter-spacing: 0;
+  text-shadow: 0 1px 5px #18354b80;
+}
+.encounter-place-header small {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  margin-top: 4px;
+  color: #e3f3ef;
+}
+.hud-world .immersive-encounter .encounter-header .icon-button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff3b;
+  color: white;
+  background: #203d516b;
+  border-radius: 10px;
+}
+.hud-world .immersive-encounter .encounter-identity {
+  position: absolute;
+  z-index: 10;
+  left: 38px;
+  top: 104px;
+  text-align: left;
+  padding: 0;
+  pointer-events: none;
+}
+.encounter-eyebrow {
+  font:
+    9px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 1.8px;
+  color: #355a65;
+}
+.hud-world .immersive-encounter .encounter-identity h2 {
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: -1.5px;
+  color: #173d4c;
+  margin: 8px 0 12px;
+  line-height: 1;
+}
+.hud-world .immersive-encounter[data-night="true"] .encounter-identity h2 {
+  color: #f2fff7;
+  text-shadow: 0 2px 12px #143f4566;
+}
+.immersive-encounter[data-night="true"] .encounter-eyebrow {
+  color: #d0e6df;
+}
+.hud-world .immersive-encounter .encounter-identity .type-badges {
+  justify-content: flex-start;
+}
+.hud-world .immersive-encounter .type-badge {
+  border: 1px solid #ffffff77;
+  font-size: 11px;
+  box-shadow: 0 2px 10px #21493610;
+}
+.hud-world .immersive-encounter .capture-scene {
+  grid-row: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #bddbd0;
+}
+.immersive-encounter .habitat-scenery {
+  animation: habitat-enter 0.65s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+  transform-origin: 50% 65%;
+}
+.hud-world .immersive-encounter .moving-target {
+  width: 240px;
+  height: 240px;
+  left: calc(50% - 120px);
+  top: calc(48% - 120px);
+  filter: drop-shadow(0 18px 9px #23484d24);
+}
+.hud-world .immersive-encounter .moving-target > img {
+  width: 100%;
+  height: 100%;
+}
+.encounter-ground-shadow {
+  position: absolute;
+  z-index: 1;
+  left: calc(50% - 92px);
+  top: calc(48% + 95px);
+  width: 184px;
+  height: 28px;
+  background: #1a4b3e27;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+.hud-world .immersive-encounter .game-target-ring {
+  inset: 29px;
+  border-width: 3px;
+  box-shadow:
+    0 0 0 1px #fff7,
+    0 0 0 10px #ffffff25;
+  opacity: 0.65;
+}
+.hud-world .immersive-encounter[data-behavior="dodge"] .game-target-ring {
+  opacity: 0.12;
+}
+.hud-world .immersive-encounter[data-behavior="opening"] .game-target-ring {
+  border-color: #42a679 !important;
+  box-shadow: 0 0 0 9px #c1f5d780;
+}
+.encounter-behavior {
+  position: absolute;
+  z-index: 9;
+  bottom: 111px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  pointer-events: none;
+}
+.encounter-behavior > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #ffffff6b;
+  padding: 7px 12px;
+  border-radius: 7px;
+  background: #fbfffbc2;
+  color: #43665c;
+  font-size: 11px;
+  animation: behavior-enter 0.2s ease-out;
+}
+.encounter-behavior i {
+  width: 6px;
+  height: 6px;
+  background: #78a690;
+  border-radius: 50%;
+}
+[data-behavior="alert"] .encounter-behavior > span,
+[data-behavior="dodge"] .encounter-behavior > span {
+  color: #956d34;
+  background: #fff2d7;
+}
+[data-behavior="alert"] .encounter-behavior i,
+[data-behavior="dodge"] .encounter-behavior i {
+  background: #daa75a;
+}
+[data-behavior="opening"] .encounter-behavior > span {
+  background: #d5f5e5;
+  color: #1d6c49;
+}
+.hud-world .immersive-encounter .gesture-ball {
+  bottom: 15px;
+  filter: drop-shadow(0 10px 7px #26452a45);
+}
+.encounter-impact {
+  position: absolute;
+  top: calc(48% - 90px);
+  left: calc(50% - 90px);
+  width: 180px;
+  height: 180px;
+  border: 5px solid #fffad5;
+  border-radius: 50%;
+  z-index: 8;
+  pointer-events: none;
+}
+.capture-seal {
+  position: absolute;
+  z-index: 10;
+  bottom: 48px;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff9e7;
+  border: 2px solid #fff;
+  color: #266b56;
+  padding: 15px 27px;
+  border-radius: 12px;
+  box-shadow: 0 7px 0 #1d514d25;
+  font-size: 22px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.hud-world .immersive-encounter .game-feedback {
+  grid-row: 2;
+  min-height: 0;
+  padding: 15px 20px 13px;
+  background: #15283a;
+  border-top: 1px solid #89a4ac47;
+}
+.hud-world .immersive-encounter .game-feedback strong {
+  color: #f4f9fc;
+  font-size: 15px;
+}
+.hud-world .immersive-encounter .game-feedback small {
+  color: #a6becf;
+  font-size: 11px;
+  margin-top: 4px;
+}
+.hud-world .immersive-encounter[data-outcome="caught"] .game-feedback strong {
+  color: #a1e2c5;
+}
+.hud-world .immersive-encounter .encounter-kit {
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: minmax(340px, 1.5fr) minmax(140px, 0.6fr) auto;
+  align-items: start;
+  gap: 14px;
+  width: min(940px, 100%);
+  margin: auto;
+  padding: 0 24px 22px;
+}
+.hud-world .immersive-encounter .ball-choices {
+  gap: 9px;
+}
+.hud-world .immersive-encounter .ball-choices button {
+  min-height: 60px;
+  background: #213b50;
+  border-color: #3c586b;
+  color: #dceaf3;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.hud-world .immersive-encounter .ball-choices button[aria-pressed="true"] {
+  background: #315366;
+  border-color: #9bd8c4;
+  color: #f1fbf8;
+  box-shadow: none;
+}
+.hud-world .immersive-encounter .ball-choices small {
+  color: #a8c0d1;
+}
+.hud-world .immersive-encounter .ball-choices button[aria-pressed="true"] small {
+  color: #c4ddd9;
+}
+.hud-world .immersive-encounter .berry-button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  align-items: center;
+  margin: 0;
+  min-height: 60px;
+  color: #d7eadb;
+  background: #29473e;
+  border-color: #497566;
+  padding: 10px 12px;
+}
+.hud-world .immersive-encounter .berry-button small {
+  grid-column: 1/-1;
+  float: none;
+  font-size: 9px;
+  color: #a8c7b9;
+  line-height: 1.35;
+}
+.hud-world .immersive-encounter .berry-button[aria-pressed="true"] {
+  background: #527e63;
+  border-color: #a5d2af;
+}
+.hud-world .immersive-encounter .keyboard-mode {
+  padding: 0 12px;
+  height: 60px;
+  margin: 0;
+  color: #b9cedb;
+  font-size: 11px;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  background: #1c3246;
+  border: 1px solid #3c5367;
+  border-radius: 10px;
+}
+.hud-world .immersive-encounter .keyboard-mode[aria-expanded="true"] {
+  color: #fff;
+  background: #355269;
+}
+.hud-world .immersive-encounter .keyboard-aim {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.1fr;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 18px;
+  margin: 0;
+  background: #21394d;
+  border: 1px solid #3c5367;
+  border-radius: 10px;
+  color: #d9e8ef;
+}
+.immersive-encounter .keyboard-aim label {
+  font-size: 11px;
+  color: #c2d6e4;
+}
+.immersive-encounter .keyboard-aim .spin-slider {
+  grid-column: auto;
+}
+.immersive-encounter .keyboard-aim .spin-slider small {
+  color: #9db7c7;
+}
+.hud-world .immersive-encounter .keyboard-aim .capture-primary {
+  grid-column: auto;
+  font-size: 12px;
+  margin: 0;
+}
+.hud-world .immersive-encounter .capture-actions {
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 24px 28px;
+}
+.hud-world .immersive-encounter .capture-actions > button {
+  width: min(100%, 340px);
+}
+.hud-world .immersive-encounter .capture-primary {
+  background: #ee5b68;
+  border: 1px solid #f17d85;
+  border-radius: 10px;
+  color: white;
+  min-height: 44px;
+  padding: 13px 22px;
+  box-shadow: 0 3px 0 #9a3442;
+}
+.hud-world .immersive-encounter .capture-secondary {
+  color: #d4e8ef;
+  border: 1px solid #456377;
+  border-radius: 10px;
+  padding: 13px 22px;
+}
+.immersive-encounter .encounter-api-error {
+  background: #f7fcff;
+  color: #23465a;
+  border-radius: 12px;
+}
+.scenery-cloud {
+  animation: scenery-drift 28s ease-in-out infinite alternate;
+}
+.scenery-cloud.second {
+  animation-duration: 34s;
+  animation-direction: alternate-reverse;
+}
+.scenery-water {
+  animation: scenery-water 7s ease-in-out infinite alternate;
+}
+.scenery-foreground {
+  transform-origin: 50% 100%;
+  animation: scenery-sway 9s ease-in-out infinite alternate;
+}
+@keyframes encounter-arrival {
+  from {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes habitat-enter {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes behavior-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes field-radar-wave {
+  to {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}
+@keyframes field-radar-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scenery-drift {
+  to {
+    transform: translateX(35px);
+  }
+}
+@keyframes scenery-water {
+  to {
+    transform: translateX(10px) scaleY(1.025);
+  }
+}
+@keyframes scenery-sway {
+  to {
+    transform: skewX(1.8deg);
+  }
+}
+@media (max-width: 950px) {
+  .field-companion > span:last-child {
+    display: none;
+  }
+  .field-companion {
+    flex: 0;
+  }
+  .field-console-bar {
+    gap: 18px;
+  }
+  .field-console-tools button span {
+    display: none;
+  }
+  .hud-world .immersive-encounter .encounter-kit {
+    grid-template-columns: minmax(280px, 1.5fr) minmax(140px, 0.6fr);
+  }
+  .hud-world .immersive-encounter .keyboard-mode {
+    grid-column: 1/-1;
+    height: 28px;
+    background: none;
+    border: 0;
+  }
+}
+@media (max-width: 760px) {
+  .hud-world .brand-image {
+    padding: 1px;
+  }
+  .field-console {
+    width: calc(100% - 24px);
+    bottom: 28px;
+  }
+  .field-console-bar {
+    padding: 8px 10px;
+    gap: 11px;
+    border-radius: 15px;
+  }
+  .field-companion {
+    display: none;
+  }
+  .field-radar-action {
+    gap: 12px;
+  }
+  .field-radar-button {
+    width: 52px;
+    height: 52px;
+    border-width: 2px;
+  }
+  .field-radar-action strong {
+    font-size: 12px;
+  }
+  .field-radar-action small {
+    font-size: 9px;
+    max-width: 170px;
+    line-height: 1.5;
+    margin-top: 3px;
+  }
+  .field-console-tools {
+    gap: 5px;
+  }
+  .field-console-tools button {
+    width: 36px;
+    height: 38px;
+    padding: 0;
+  }
+  .field-console-tools button:last-child > svg:last-child {
+    display: none;
+  }
+  .field-console > .radar-findings {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 12px 2px;
+  }
+  .field-console .radar-find-art,
+  .field-console .radar-find-art img {
+    width: 52px;
+    height: 52px;
+  }
+  .field-console .radar-findings > p {
+    font-size: 9px;
+  }
+  .hud-world .immersive-encounter[open] {
+    grid-template-rows: minmax(240px, 1fr) auto auto;
+  }
+  .hud-world .immersive-encounter .encounter-header {
+    padding: 12px;
+  }
+  .encounter-back {
+    width: 39px;
+    height: 39px;
+    padding: 0;
+    justify-content: center;
+  }
+  .encounter-back > span {
+    display: none;
+  }
+  .hud-world .encounter-header .encounter-place-header {
+    font-size: 12px;
+  }
+  .hud-world .immersive-encounter .encounter-header .icon-button {
+    width: 39px;
+    height: 39px;
+  }
+  .hud-world .immersive-encounter .encounter-identity {
+    top: 76px;
+    left: 22px;
+  }
+  .hud-world .immersive-encounter .encounter-identity h2 {
+    font-size: 32px;
+    margin: 7px 0 9px;
+  }
+  .encounter-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+  .hud-world .immersive-encounter .moving-target {
+    width: 205px;
+    height: 205px;
+    left: calc(50% - 102.5px);
+    top: calc(52% - 102.5px);
+  }
+  .encounter-ground-shadow {
+    top: calc(52% + 85px);
+    width: 140px;
+    left: calc(50% - 70px);
+  }
+  .hud-world .immersive-encounter .game-feedback {
+    padding: 11px 16px 10px;
+  }
+  .hud-world .immersive-encounter .game-feedback strong {
+    font-size: 13px;
+  }
+  .hud-world .immersive-encounter .game-feedback small {
+    font-size: 10px;
+  }
+  .hud-world .immersive-encounter .encounter-kit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 12px max(14px, env(safe-area-inset-bottom));
+    gap: 9px;
+  }
+  .hud-world .immersive-encounter .ball-choices {
+    grid-column: 1/-1;
+    gap: 7px;
+  }
+  .hud-world .immersive-encounter .ball-choices button {
+    min-height: 54px;
+    padding: 8px;
+    gap: 5px;
+    font-size: 10px;
+  }
+  .hud-world .immersive-encounter .ball-choices small {
+    font-size: 8px;
+  }
+  .hud-world .immersive-encounter .berry-button {
+    min-height: 40px;
+    padding: 9px;
+    font-size: 11px;
+  }
+  .hud-world .immersive-encounter .berry-button small {
+    display: none;
+  }
+  .hud-world .immersive-encounter .keyboard-mode {
+    grid-column: auto;
+    height: 40px;
+    padding: 0 5px;
+    background: #213b50;
+    border: 1px solid #3c5367;
+  }
+  .hud-world .immersive-encounter .keyboard-aim {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 9px;
+    gap: 10px;
+  }
+  .hud-world .immersive-encounter .keyboard-aim .capture-primary {
+    grid-column: 1/-1;
+    padding: 9px;
+    min-height: 36px;
+  }
+  .immersive-encounter[data-assist="true"] .encounter-identity {
+    top: 65px;
+  }
+  .hud-world .immersive-encounter[data-assist="true"] .encounter-identity h2 {
+    font-size: 23px;
+  }
+  .hud-world .immersive-encounter[data-assist="true"] .moving-target {
+    width: 155px;
+    height: 155px;
+    left: calc(50% - 77.5px);
+    top: calc(51% - 77.5px);
+  }
+  .immersive-encounter[data-assist="true"] .encounter-behavior {
+    display: none;
+  }
+  .hud-world .immersive-encounter .capture-actions {
+    padding: 2px 14px 25px;
+    gap: 10px;
+  }
+  .hud-world .immersive-encounter .capture-actions > button {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+}
+@media (max-height: 650px) and (min-width: 761px) {
+  .hud-world .immersive-encounter .encounter-header {
+    padding: 12px 24px;
+  }
+  .hud-world .immersive-encounter .encounter-identity {
+    top: 76px;
+  }
+  .hud-world .immersive-encounter .moving-target {
+    width: 180px;
+    height: 180px;
+    left: calc(50% - 90px);
+    top: calc(45% - 90px);
+  }
+  .encounter-behavior {
+    bottom: 92px;
+  }
+  .hud-world .immersive-encounter .encounter-identity h2 {
+    font-size: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-world .immersive-encounter,
+  .immersive-encounter .habitat-scenery,
+  .scenery-cloud,
+  .scenery-water,
+  .scenery-foreground,
+  .encounter-behavior > span,
+  .field-radar-orbit,
+  .field-radar-button > svg {
+    animation: none !important;
+  }
+  .field-radar-button {
+    transition: none;
+  }
+}

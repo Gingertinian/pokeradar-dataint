@@ -1,0 +1,400 @@
+.live-world {
+  overflow: clip;
+}
+.capture-play {
+  width: min(510px, calc(100vw - 24px));
+}
+.capture-play .encounter-identity {
+  padding: 5px 20px 12px;
+}
+.capture-play .encounter-identity h2 {
+  font-size: 29px;
+  margin-top: 5px;
+}
+.capture-play .capture-scene {
+  height: 330px;
+  touch-action: none;
+}
+.moving-target {
+  position: absolute;
+  width: 214px;
+  height: 214px;
+  left: calc(50% - 107px);
+  top: 14px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.moving-target > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 9px #47657922);
+}
+.game-target-ring {
+  position: absolute;
+  inset: 28px;
+  border: 3px solid;
+  border-radius: 50%;
+  opacity: 0.65;
+  box-shadow: 0 0 0 8px #ffffff30;
+}
+.capture-play[data-phase="dragging"] .game-target-ring {
+  animation: aim-contract 1.6s ease-in-out infinite;
+}
+@keyframes aim-contract {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capture-play .game-target-ring {
+    animation: none !important;
+  }
+}
+.capture-play .gesture-ball {
+  bottom: 15px;
+  width: 70px;
+  height: 70px;
+  left: calc(50% - 35px);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.gesture-ball:active {
+  cursor: grabbing;
+}
+.gesture-ball > span {
+  display: block;
+  pointer-events: none;
+}
+.keyboard-crosshair {
+  position: absolute;
+  z-index: 8;
+  transform: translate(-50%, -50%);
+  color: #546f9c;
+  font-size: 28px;
+  font-weight: 300;
+  pointer-events: none;
+}
+.game-feedback {
+  padding: 16px 22px 12px;
+  min-height: 72px;
+  text-align: center;
+}
+.game-feedback strong {
+  display: block;
+  color: #40577a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.game-feedback small {
+  display: block;
+  color: #7c8da7;
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 5px;
+}
+.capture-play[data-outcome="miss"] .game-feedback strong,
+.capture-play[data-outcome="breakout"] .game-feedback strong {
+  color: #ae7753;
+}
+.capture-play[data-outcome="fled"] .game-feedback strong {
+  color: #af5970;
+}
+.capture-play[data-outcome="caught"] .game-feedback strong {
+  color: #38836a;
+}
+.encounter-kit {
+  padding: 0 22px 18px;
+}
+.ball-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.ball-choices button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-align: left;
+  border: 1px solid #e3e8f3;
+  border-radius: 9px;
+  background: #f8faff;
+  padding: 10px 8px;
+  font-size: 10px;
+  color: #697b9b;
+}
+.ball-choices button[aria-pressed="true"] {
+  border-color: #8da5d6;
+  background: #edf3ff;
+  box-shadow: inset 0 0 0 1px #8da5d6;
+}
+.ball-choices button:disabled {
+  opacity: 0.35;
+}
+.ball-choices i {
+  width: 13px;
+  height: 13px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  flex: none;
+  box-shadow: 0 1px 3px #53648122;
+}
+.ball-choices small {
+  display: block;
+  font-size: 8px;
+  color: #99a8be;
+  margin-top: 3px;
+}
+.berry-button {
+  width: 100%;
+  border: 0;
+  background: #f7f0f8;
+  color: #aa719b;
+  border-radius: 8px;
+  padding: 9px 12px;
+  text-align: left;
+  font-size: 11px;
+  margin-top: 8px;
+}
+.berry-button small {
+  float: right;
+  font-size: 8px;
+  margin-top: 3px;
+  color: #ad93aa;
+}
+.berry-button[aria-pressed="true"] {
+  background: #eef7e9;
+  color: #65965e;
+}
+.berry-button:disabled:not([aria-pressed="true"]) {
+  opacity: 0.45;
+}
+.keyboard-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 9px;
+  padding: 12px 5px 0;
+  background: none;
+  border: 0;
+  color: #9aa6bf;
+  width: 100%;
+}
+.keyboard-aim {
+  padding-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.keyboard-aim label {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #8291ad;
+  gap: 8px;
+}
+.keyboard-aim input {
+  width: 100%;
+  accent-color: #778fbd;
+}
+.keyboard-aim .capture-primary {
+  grid-column: 1/-1;
+  font-size: 11px;
+  padding: 10px;
+}
+.live-world .site-map-caption,
+.live-world .atlas-map-heading,
+.live-world .region-map-heading {
+  display: none;
+}
+.live-world .expedition-map-topbar {
+  align-items: flex-start;
+  left: 20px;
+  right: 20px;
+  top: 18px;
+  gap: 12px;
+}
+.live-world .map-breadcrumb {
+  max-width: calc(100% - 145px);
+  min-height: 42px;
+  border-radius: 10px;
+}
+.live-world .maplibregl-ctrl-top-right {
+  top: 123px;
+  right: 20px;
+}
+.live-world .expedition-bottom {
+  left: 24px;
+  right: 24px;
+  bottom: 40px;
+  justify-content: flex-end;
+}
+.live-world .expedition-bottom[data-detail-open="true"] {
+  justify-content: flex-start;
+  right: calc(var(--detail) + 55px);
+}
+.live-world .scan-controls {
+  background: #ffffffec;
+  padding: 12px;
+  border: 1px solid #e0e7f0;
+  border-radius: 14px;
+  box-shadow: 0 5px 22px #45608016;
+}
+.live-world .scan-caption {
+  font-size: 10px;
+  margin: 0 0 8px;
+  text-shadow: none;
+}
+.live-world .scan-button {
+  box-shadow: none;
+  padding: 13px 20px;
+  font-size: 12px;
+}
+.live-world .change-destination-button {
+  margin-top: 6px;
+  font-size: 9px;
+}
+.live-world .app-toast {
+  top: auto;
+  bottom: 18px;
+  left: 50%;
+  translate: -50% 0;
+  max-width: min(500px, calc(100vw - 28px));
+  pointer-events: none;
+}
+.live-world .mobile-panel-close {
+  display: inline-flex;
+}
+@media (min-width: 761px) {
+  .live-world[data-panel-collapsed="true"] .expedition-panel {
+    display: none;
+  }
+}
+.live-world .weather-clouds > span {
+  opacity: 0.85;
+  background: radial-gradient(ellipse at 40% 60%, #f5f9ffcf 0%, #e0e9f39c 32%, #fff0 70%);
+}
+.live-world .atmosphere-rain,
+.live-world .atmosphere-storm {
+  background: linear-gradient(#435f8b4a, #7d93ae1f);
+}
+.live-world .weather-particles > i {
+  height: 46px;
+  background: linear-gradient(transparent, #426eaba8);
+  width: 1.6px;
+}
+.live-world .atmosphere-night {
+  background: linear-gradient(#16234880, #3345783b);
+}
+.live-world .atmosphere-snow .weather-particles > i {
+  width: 5px;
+  height: 5px;
+  background: #fff;
+}
+@media (max-width: 760px) {
+  .capture-play .capture-scene {
+    height: 280px;
+  }
+  .capture-play .moving-target {
+    width: 190px;
+    height: 190px;
+    left: calc(50% - 95px);
+    top: 7px;
+  }
+  .capture-play .moving-target > img {
+    width: 190px;
+    height: 190px;
+  }
+  .capture-play .game-target-ring {
+    inset: 29px;
+  }
+  .capture-play .encounter-identity h2 {
+    font-size: 25px;
+  }
+  .encounter-kit {
+    padding: 0 16px 14px;
+  }
+  .game-feedback {
+    padding: 12px 14px 9px;
+  }
+  .game-feedback strong {
+    font-size: 12px;
+  }
+  .game-feedback small {
+    font-size: 9px;
+  }
+  .ball-choices button {
+    padding: 9px 6px;
+    font-size: 9px;
+    gap: 4px;
+  }
+  .berry-button small {
+    float: none;
+    display: block;
+    font-size: 9px;
+    margin-top: 4px;
+  }
+  .live-world .expedition-map-topbar {
+    left: 12px;
+    right: 12px;
+    top: 12px;
+    flex-wrap: nowrap;
+  }
+  .live-world .map-breadcrumb {
+    max-width: calc(100% - 49px);
+    padding: 11px 9px;
+  }
+  .live-world .map-breadcrumb .current-place {
+    max-width: 128px;
+  }
+  .live-world .maplibregl-ctrl-top-right {
+    top: 109px;
+    right: 13px;
+  }
+  .live-world .expedition-bottom {
+    left: 12px;
+    right: 12px;
+    bottom: 35px;
+  }
+  .live-world .scan-controls {
+    padding: 10px;
+  }
+  .live-world .scan-button {
+    padding: 13px 17px;
+  }
+  .live-world .mobile-results-button {
+    bottom: 175px;
+    left: 13px;
+    padding: 10px 12px;
+  }
+  .live-world .map-stage:not([data-scope="site"]) .mobile-results-button {
+    bottom: 95px;
+    left: 50%;
+  }
+}
+@media (max-height: 740px) {
+  .capture-play .capture-scene {
+    height: 220px;
+  }
+  .capture-play .moving-target {
+    height: 170px;
+    width: 170px;
+    left: calc(50% - 85px);
+    top: 0;
+  }
+  .game-feedback {
+    min-height: 60px;
+  }
+  .encounter-kit {
+    padding-bottom: 10px;
+  }
+}

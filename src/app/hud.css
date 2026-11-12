@@ -1,0 +1,1223 @@
+.hud-world {
+  --ink: #20304a;
+  --deep: #20304a;
+  --muted: #778499;
+  --accent: #d9495e;
+  --sidebar: 314px;
+  background: #e8edf0;
+}
+.hud-world .app-header {
+  height: 68px;
+  padding: 0 24px;
+  border-bottom: 1px solid #e2e7ed;
+  background: #fff;
+}
+.hud-world .brand-name {
+  font-size: 24px;
+  font-weight: 700;
+}
+.hud-world .brand-edition {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #8490a4;
+}
+.hud-world .main-navigation > button {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7b8798;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.hud-world .main-navigation > button.is-active {
+  background: #20304a;
+  color: #fff;
+}
+.hud-world .nav-team-count {
+  background: #e9edf4;
+  color: #54657e;
+}
+.hud-world .main-navigation > button.is-active .nav-team-count {
+  background: #fff2;
+  color: #fff;
+}
+.hud-world .expedition-panel {
+  background: #f9fafc;
+  border-right: 1px solid #dfe5ee;
+}
+.hud-world .panel-topline {
+  padding-top: 22px;
+}
+.hud-world .panel-topline .section-kicker {
+  font-size: 9px;
+  color: #8191a6;
+  letter-spacing: 1.25px;
+}
+.hud-world .panel-title {
+  padding-bottom: 18px;
+}
+.hud-world .panel-title h2 {
+  font-size: 25px;
+  color: #23344f;
+  line-height: 1.12;
+}
+.hud-world .panel-title p {
+  font-size: 12px;
+  color: #8390a4;
+  line-height: 1.55;
+}
+.hud-world .panel-tabs {
+  gap: 19px;
+}
+.hud-world .panel-tabs > button {
+  color: #8290a5;
+  font-size: 12px;
+  padding: 13px 0;
+}
+.hud-world .panel-tabs > button[aria-pressed="true"] {
+  color: #d54d63;
+}
+.hud-world .panel-tabs > button[aria-pressed="true"]::after {
+  background: #dd5d6e;
+  height: 2px;
+}
+.hud-world .atlas-region-card {
+  height: 144px;
+  min-height: 144px;
+  background: #eef2f6;
+  border-radius: 14px;
+  border: 1px solid #e0e7ef;
+  box-shadow: none;
+}
+.hud-world .region-card-copy {
+  padding: 23px 17px;
+}
+.hud-world .region-card-copy > strong {
+  color: #263a55;
+  font-size: 22px;
+  line-height: 1.05;
+  max-width: 165px;
+}
+.hud-world .region-card-copy > small {
+  color: #738ba4;
+  font-size: 8px;
+}
+.hud-world .region-card-copy > span {
+  color: #6c819d;
+  font-size: 10px;
+}
+.hud-world .region-card-pokemon {
+  width: 136px;
+  height: 136px;
+  right: -7px;
+  bottom: -1px;
+}
+.hud-world .destination-card {
+  position: relative;
+  display: block;
+  min-height: 163px;
+  padding: 38px 16px 16px;
+  margin: 12px 0;
+  border: 1px solid #dfe6ee;
+  border-radius: 15px;
+  background: var(--destination-soft, #edf3f8);
+  isolation: isolate;
+  overflow: hidden;
+}
+.hud-world .destination-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 52%;
+  background: linear-gradient(90deg, transparent, var(--destination-soft, #edf3f8));
+  opacity: 0.09;
+  z-index: -1;
+}
+.hud-world .destination-number {
+  position: absolute;
+  top: 14px;
+  left: 17px;
+  font-size: 10px;
+  color: #7d91a8;
+  margin: 0;
+  width: auto;
+}
+.hud-world .destination-number svg {
+  width: 13px;
+  height: 13px;
+}
+.hud-world .destination-card-content {
+  display: block;
+  max-width: calc(100% - 79px);
+}
+.hud-world .destination-card-content strong {
+  font-size: 16px;
+  line-height: 1.15;
+  color: #2b425e;
+  letter-spacing: -0.3px;
+}
+.hud-world .destination-card-content small {
+  font-size: 9px;
+  color: #7d90a6;
+  margin-top: 6px;
+}
+.hud-world .destination-card-content p {
+  font-size: 10px;
+  line-height: 1.5;
+  max-width: 170px;
+  margin: 9px 0 12px;
+  color: #6b819b;
+}
+.destination-biome {
+  font-size: 9px;
+  color: #536f90;
+  font-weight: 600;
+}
+.destination-guide-art {
+  position: absolute;
+  width: 127px;
+  height: 133px;
+  right: -15px;
+  bottom: -2px;
+  pointer-events: none;
+  transition: transform 0.3s;
+}
+.destination-guide-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hud-world .destination-card:hover .destination-guide-art {
+  transform: translateY(-5px) rotate(-3deg);
+}
+.hud-world .destination-card > svg {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  width: 14px;
+  color: #8299b3;
+  margin: 0;
+}
+.hud-world .destination-card:hover,
+.hud-world .destination-card.is-active {
+  background: var(--destination-soft, #edf3f8);
+  border-color: #a8bdd5;
+}
+.hud-world .expedition-sighting-main {
+  min-height: 92px;
+  padding: 12px 8px;
+  gap: 12px;
+}
+.hud-world .expedition-sprite {
+  width: 54px;
+  height: 56px;
+  border-radius: 12px;
+}
+.hud-world .expedition-sighting-copy > strong {
+  font-size: 14px;
+  color: #33455e;
+}
+.hud-world .expedition-sighting-copy > small {
+  font-size: 9px;
+  color: #8c9bb0;
+}
+.hud-world .expedition-sightings > li.is-selected {
+  background: #edf2f9;
+  box-shadow: inset 3px 0 0 #536c93;
+}
+.hud-world .expedition-sightings > li:hover {
+  background: #eff3f8;
+}
+.hud-world .expedition-filters .search-field {
+  background: #edf1f6;
+  border-color: #e4e9f0;
+  border-radius: 10px;
+}
+.hud-world .weather-card strong {
+  color: #5e728e;
+}
+.hud-world .weather-card summary {
+  gap: 10px;
+}
+.hud-world .weather-card small {
+  color: #94a0b1;
+}
+.hud-world .panel-weather {
+  padding-bottom: 13px;
+}
+.hud-world .expedition-map-topbar {
+  top: 20px;
+  left: 22px;
+  right: 90px;
+  pointer-events: none;
+  display: block;
+}
+.hud-world .map-breadcrumb {
+  display: inline-flex;
+  max-width: 100%;
+  min-height: 44px;
+  background: #fff;
+  border: 1px solid #e2e7ef;
+  border-radius: 12px;
+  padding: 11px 15px;
+  box-shadow: 0 3px 12px #20304a12;
+  gap: 8px;
+}
+.hud-world .map-breadcrumb button {
+  font-size: 11px;
+  color: #74869f;
+}
+.hud-world .map-breadcrumb .current-place {
+  font-size: 11px;
+  font-weight: 600;
+  color: #344a69;
+  max-width: 220px;
+}
+.game-map-controls {
+  position: absolute;
+  z-index: 32;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 54px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #e2e7ee;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #253f5a20;
+}
+.location-trail {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  pointer-events: auto;
+  max-width: 100%;
+  padding: 8px 11px 8px 7px;
+  background: #fff;
+  border: 1px solid #e1e7ee;
+  border-radius: 15px;
+  box-shadow: 0 3px 16px #29425d14;
+}
+.location-trail button {
+  border: 0;
+  background: none;
+  color: #657c98;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.location-back {
+  width: 34px;
+  height: 38px;
+  border-radius: 9px;
+  flex: none;
+}
+.location-back:hover {
+  background: #edf2f8;
+}
+.location-trail > div {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 9px;
+}
+.location-trail strong {
+  font-size: 14px;
+  letter-spacing: -0.25px;
+  line-height: 1.2;
+  color: #314965;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.location-trail > div > span {
+  font-size: 10px;
+  color: #8c9caf;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.location-trail .location-places {
+  height: 34px;
+  padding: 0 9px;
+  border-left: 1px solid #e8edf3;
+  gap: 7px;
+  font-size: 10px;
+  flex: none;
+}
+.location-live {
+  width: 23px;
+  height: 23px;
+  background: #eaf5ef;
+  border-radius: 50%;
+  color: #6b9b85;
+  display: grid;
+  place-items: center;
+}
+.travel-banner {
+  position: absolute;
+  z-index: 29;
+  left: 50%;
+  top: 38%;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #20364fea;
+  border: 1px solid #ffffff1f;
+  border-radius: 14px;
+  color: white;
+  padding: 18px 25px;
+  box-shadow: 0 10px 40px #16354d20;
+  pointer-events: none;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+.travel-banner svg {
+  color: #a1c9d0;
+}
+.ball-spin-aura {
+  position: absolute;
+  inset: -7px;
+  border: 2px solid #e3b551;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 5px #f4ce7855);
+  pointer-events: none;
+}
+.ball-spin-aura::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  right: 2px;
+  top: 10px;
+  background: #ffe1a0;
+  border-radius: 50%;
+}
+.spin-slider {
+  grid-column: 1/-1;
+}
+.spin-slider small {
+  font-size: 9px;
+  color: #8b9bb0;
+}
+@media (max-width: 760px) {
+  .location-trail {
+    gap: 5px;
+    padding: 7px 7px 7px 3px;
+    border-radius: 13px;
+    width: 100%;
+  }
+  .location-back {
+    width: 28px;
+    height: 34px;
+  }
+  .location-trail strong {
+    font-size: 12px;
+    max-width: 167px;
+  }
+  .location-trail > div > span {
+    font-size: 9px;
+  }
+  .location-trail .location-places {
+    padding: 0 6px;
+    width: 30px;
+  }
+  .location-places > span,
+  .location-live {
+    display: none;
+  }
+  .location-trail > div {
+    padding-right: 0;
+    flex: 1;
+  }
+  .travel-banner {
+    font-size: 16px;
+    padding: 16px 20px;
+    max-width: calc(100% - 40px);
+    white-space: normal;
+    text-align: center;
+  }
+}
+.game-map-controls > button,
+.game-map-settings > summary {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 11px;
+  background: none;
+  color: #516882;
+  cursor: pointer;
+  list-style: none;
+  line-height: 1;
+}
+.game-map-settings > summary::-webkit-details-marker {
+  display: none;
+}
+.game-map-controls > button:hover,
+.game-map-settings > summary:hover,
+.game-map-settings[open] > summary {
+  background: #edf2f7;
+  color: #243e60;
+}
+.game-map-controls svg {
+  display: block;
+  flex: none;
+}
+.game-control-divider {
+  width: 26px;
+  height: 1px;
+  background: #e4eaf1;
+  margin: 3px 0;
+}
+.game-map-settings {
+  position: static;
+}
+.game-settings-panel {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 0;
+  width: 264px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e1e8f1;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px #24395124;
+}
+.game-setting-label {
+  display: block;
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 0.5px;
+  color: #7a8ca5;
+  margin-bottom: 10px;
+}
+.game-setting-label:not(:first-child) {
+  margin-top: 21px;
+}
+.game-style-options {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #edf2f7;
+  border-radius: 9px;
+}
+.game-style-options > button {
+  flex: 1;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: #7f90a7;
+  padding: 9px 7px;
+  font-size: 11px;
+}
+.game-style-options > button[aria-pressed="true"] {
+  background: #253b58;
+  color: #fff;
+  box-shadow: 0 2px 4px #203b4c1a;
+}
+.game-settings-panel .atmosphere-control > summary {
+  box-shadow: none;
+  border: 1px solid #e4e9ef;
+  background: #f9fbfd;
+  padding: 11px;
+}
+.game-settings-panel .atmosphere-menu {
+  position: static;
+  width: 100%;
+  box-shadow: none;
+  border: 0;
+  padding: 14px 0 0;
+}
+.game-settings-panel .atmosphere-menu > strong {
+  display: none;
+}
+.game-settings-panel .atmosphere-menu button {
+  min-height: 53px;
+  background: #f5f8fc;
+  font-size: 10px;
+}
+.game-settings-panel .atmosphere-menu button[aria-pressed="true"] {
+  background: #eaf1fa;
+  color: #486790;
+  border-color: #8fa8c8;
+}
+.game-settings-panel .atmosphere-menu p {
+  font-size: 10px;
+  line-height: 1.55;
+  color: #8c9ab0;
+}
+.hud-world .map-stage[data-detail-open="true"] .game-map-controls {
+  right: calc(var(--detail) + 38px);
+}
+.map-viewfinder {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  translate: -50% -50%;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #253d5d30;
+  opacity: 0.75;
+}
+.map-viewfinder > span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  left: 7px;
+  top: 7px;
+  background: #29496a;
+  box-shadow: 0 0 0 1px #fff;
+}
+.habitat-hud {
+  position: absolute;
+  z-index: 4;
+  top: 80px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 0;
+  color: #304c68;
+  pointer-events: none;
+  text-shadow: 0 1px 5px #fff;
+}
+.habitat-signal {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #79ac93;
+  box-shadow: 0 0 0 4px #ffffff80;
+}
+.habitat-hud > span:last-child {
+  font-size: 12px;
+  font-weight: 600;
+}
+.habitat-hud small {
+  display: block;
+  font-size: 10px;
+  color: #6d869d;
+  font-weight: 400;
+  margin-top: 3px;
+}
+.hud-world .expedition-bottom {
+  left: 50%;
+  right: auto;
+  bottom: 32px;
+  translate: -50% 0;
+  width: 342px;
+  display: block;
+  pointer-events: none;
+}
+.hud-world .scan-controls {
+  pointer-events: auto;
+  width: 100%;
+  background: #22364f;
+  border: 1px solid #1e3047;
+  border-radius: 20px;
+  padding: 14px 14px 9px;
+  box-shadow: 0 9px 30px #17304935;
+}
+.hud-world .scan-caption {
+  color: #c2cddb;
+  font-size: 10px;
+  margin-bottom: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+.hud-world .scan-action-row {
+  gap: 8px;
+  align-items: center;
+}
+.hud-world .scan-button {
+  width: auto;
+  flex: 1;
+  height: 50px;
+  min-height: 50px;
+  padding: 0 18px;
+  justify-content: center;
+  background: #df5365;
+  border: 1px solid #da4b61;
+  border-radius: 12px;
+  box-shadow: 0 3px 0 #162b383b;
+  font-size: 13px;
+  font-weight: 600;
+}
+.hud-world .scan-button:hover {
+  background: #d6445c;
+  transform: none;
+}
+.hud-world .scan-button:disabled {
+  opacity: 0.55;
+}
+.hud-world .scan-button > svg {
+  height: 21px;
+  width: 21px;
+}
+.hud-world .new-search-button {
+  height: 50px;
+  width: 44px;
+  border-radius: 12px;
+  background: #ffffff0d;
+  border: 1px solid #ffffff1f;
+  color: #bdccdf;
+  padding: 0;
+}
+.hud-world .new-search-button:hover {
+  background: #ffffff1c;
+}
+.hud-world .change-destination-button {
+  color: #9bacc0;
+  font-size: 10px;
+  padding: 7px 0 2px;
+  margin: 4px 0 0;
+}
+.hud-world .expedition-bottom[data-detail-open="true"] {
+  left: 24px;
+  right: auto;
+  translate: 0 0;
+}
+.hud-world .mobile-results-button {
+  display: flex;
+  left: 24px;
+  bottom: 34px;
+  right: auto;
+  padding: 12px 15px;
+  min-height: 44px;
+  border: 1px solid #e0e6ef;
+  border-radius: 12px;
+  color: #526b89;
+  background: #fff;
+  box-shadow: 0 3px 12px #344f7015;
+  gap: 9px;
+  font-size: 12px;
+}
+.hud-world .mobile-results-button.is-hidden {
+  display: none;
+}
+.hud-world .map-exploration-prompt {
+  background: none;
+  border: 0;
+  box-shadow: none;
+  left: 24px;
+  bottom: 100px;
+  padding: 0;
+  color: #6c849c;
+  font-size: 11px;
+}
+.hud-world .map-exploration-prompt button {
+  display: none;
+}
+.hud-world .pokemon-detail {
+  top: 20px;
+  bottom: 26px;
+  right: 20px;
+  border-radius: 20px;
+  border: 1px solid #dce5ef;
+  box-shadow: 0 12px 32px #28435d25;
+  background: #fff;
+}
+.hud-world .detail-title h2 {
+  font-size: 30px;
+  color: #293f5a;
+}
+.hud-world .detail-topline {
+  padding: 16px 20px 9px;
+}
+.hud-world .detail-view-toggle {
+  background: #eef2f7;
+  border-radius: 8px;
+}
+.hud-world .detail-view-toggle button[aria-pressed="true"] {
+  background: #fff;
+  color: #405c7e;
+  box-shadow: 0 1px 3px #2d44531a;
+}
+.hud-world .detail-bottom {
+  padding: 13px 20px;
+}
+.hud-world .save-button {
+  background: #de5063;
+  box-shadow: none;
+  border-radius: 11px;
+  padding: 13px;
+  font-size: 12px;
+}
+.hud-world .save-button.is-saved {
+  background: #edf3f8;
+  color: #5a7795;
+}
+.hud-world .capture-play {
+  border-radius: 24px;
+  border: 1px solid #d9e3ec;
+  box-shadow: 0 24px 100px #152f5259;
+  background: #fcfcfd;
+}
+.hud-world .capture-dialog::backdrop {
+  background: #152a456e;
+  backdrop-filter: blur(5px);
+}
+.hud-world .capture-play .encounter-header {
+  padding: 18px 21px 0;
+}
+.hud-world .encounter-header > span {
+  font-size: 9px;
+  color: #8999ad;
+  letter-spacing: 1px;
+}
+.hud-world .encounter-header .icon-button {
+  color: #7d90a6;
+  width: 31px;
+  height: 31px;
+}
+.hud-world .capture-play .encounter-identity {
+  padding: 5px 24px 16px;
+}
+.hud-world .capture-play .encounter-identity h2 {
+  font-size: 34px;
+  letter-spacing: -1.2px;
+  color: #243b58;
+  margin: 6px 0 10px;
+}
+.hud-world .encounter-identity .type-badge {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.hud-world .capture-play .capture-scene {
+  height: 330px;
+  background: none;
+  overflow: hidden;
+}
+.habitat-scenery {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hud-world .moving-target {
+  top: 17px;
+  filter: drop-shadow(0 10px 10px #3e637826);
+}
+.hud-world .game-target-ring {
+  border-width: 2px;
+  opacity: 0.48;
+  box-shadow: 0 0 0 7px #ffffff18;
+}
+.hud-world .capture-play[data-phase="dragging"] .game-target-ring {
+  opacity: 0.8;
+}
+.hud-world .encounter-scene-place {
+  background: #f9fcff70;
+  border: 1px solid #fff4;
+  color: #567d90;
+  border-radius: 6px;
+  font-size: 9px;
+  padding: 6px 9px;
+  left: 15px;
+  top: 14px;
+}
+.hud-world .gesture-ball {
+  bottom: 14px;
+  filter: drop-shadow(0 8px 9px #37546b33);
+}
+.hud-world .game-feedback {
+  padding: 16px 24px 13px;
+  min-height: 75px;
+  background: #fcfcfd;
+}
+.hud-world .game-feedback strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3c5473;
+}
+.hud-world .game-feedback small {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #8596ae;
+  margin-top: 5px;
+}
+.hud-world .encounter-kit {
+  padding: 0 22px 19px;
+}
+.hud-world .ball-choices {
+  gap: 8px;
+}
+.hud-world .ball-choices button {
+  min-height: 62px;
+  background: #fff;
+  border: 1px solid #e0e6ef;
+  border-radius: 12px;
+  gap: 9px;
+  padding: 10px 9px;
+  color: #516885;
+  font-size: 11px;
+}
+.hud-world .ball-choices button[aria-pressed="true"] {
+  background: #263c59;
+  border-color: #263c59;
+  box-shadow: 0 3px 8px #21384e16;
+  color: white;
+}
+.hud-world .ball-choices button[aria-pressed="true"] small {
+  color: #aebed3;
+}
+.hud-world .ball-choices small {
+  font-size: 9px;
+  color: #94a3b7;
+  margin-top: 4px;
+}
+.kit-ball-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+.hud-world .berry-button {
+  margin-top: 10px;
+  background: #f3eef6;
+  border: 1px solid #eee5f2;
+  border-radius: 10px;
+  color: #8a648a;
+  padding: 11px 12px;
+  font-size: 11px;
+}
+.hud-world .berry-button[aria-pressed="true"] {
+  background: #edf5ef;
+  border-color: #dcebe0;
+  color: #577d62;
+}
+.hud-world .berry-button small {
+  font-size: 9px;
+  color: #a18fa5;
+}
+.hud-world .keyboard-mode {
+  font-size: 10px;
+  color: #8d9db4;
+  padding-top: 13px;
+}
+.daylight-wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #fff0cc16, transparent 60%);
+  pointer-events: none;
+}
+.hud-world .world-atmosphere.atmosphere-sun {
+  background: #fff7e508;
+}
+.hud-world .weather-clouds > span {
+  background: radial-gradient(ellipse at center, #e8eff78c, transparent 68%);
+  filter: blur(23px);
+  opacity: 0.45;
+  top: -90px;
+}
+.hud-world .weather-clouds > span:nth-child(2) {
+  opacity: 0.32;
+  top: 3%;
+}
+.hud-world .weather-clouds > span:nth-child(3) {
+  opacity: 0.2;
+}
+.hud-world .atmosphere-rain {
+  background: linear-gradient(#6b819f26, #91a5bc12);
+}
+.hud-world .atmosphere-storm {
+  background: linear-gradient(#38516e36, #7992ab1a);
+}
+.hud-world .atmosphere-night {
+  background: linear-gradient(#1729436b, #344d6d30);
+}
+.hud-world .night-stars > i {
+  opacity: 0.5;
+  box-shadow: 0 0 3px #fff8;
+}
+.hud-world .weather-particles > i {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(transparent, #b1c6e0bb);
+}
+.hud-world .atmosphere-snow .weather-particles > i {
+  width: 3px;
+  height: 3px;
+  box-shadow: 0 0 3px #fff9;
+}
+.hud-world .rain-ripples > i {
+  border-color: #9cb6ce50;
+  width: 13px;
+  height: 4px;
+}
+.hud-world .storm-glow {
+  animation: none;
+  display: none;
+}
+@media (max-width: 1100px) and (min-width: 761px) {
+  .hud-world {
+    --sidebar: 294px;
+    --detail: 330px;
+  }
+  .hud-world .expedition-bottom {
+    width: 310px;
+  }
+  .hud-world .mobile-results-button {
+    bottom: 182px;
+  }
+  .hud-world .map-exploration-prompt {
+    bottom: 240px;
+  }
+  .hud-world .panel-title h2 {
+    font-size: 23px;
+  }
+}
+@media (max-width: 760px) {
+  .hud-world .app-header {
+    height: 62px;
+    padding: 0 13px;
+    gap: 6px;
+  }
+  .hud-world .brand-name {
+    font-size: 20px;
+  }
+  .hud-world .main-navigation > button {
+    min-width: 33px;
+    min-height: 35px;
+    padding: 8px;
+    border-radius: 9px;
+  }
+  .hud-world .header-tools > button {
+    width: 28px;
+  }
+  .hud-world .expedition-map-topbar {
+    top: 14px;
+    left: 14px;
+    right: 79px;
+  }
+  .hud-world .map-breadcrumb {
+    min-height: 42px;
+    padding: 10px 11px;
+    gap: 6px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  .hud-world .map-breadcrumb button {
+    font-size: 9px;
+    gap: 5px;
+  }
+  .hud-world .map-breadcrumb .current-place {
+    font-size: 10px;
+    max-width: 112px;
+  }
+  .game-map-controls {
+    top: 14px;
+    right: 14px;
+    width: 50px;
+    padding: 3px;
+    border-radius: 15px;
+  }
+  .game-map-controls > button,
+  .game-map-settings > summary {
+    width: 42px;
+    height: 42px;
+    min-height: 42px;
+    border-radius: 10px;
+  }
+  .game-map-controls svg {
+    width: 19px;
+    height: 19px;
+  }
+  .game-settings-panel {
+    width: min(264px, calc(100vw - 90px));
+    right: calc(100% + 9px);
+    padding: 15px;
+  }
+  .hud-world .map-stage[data-detail-open="true"] .game-map-controls {
+    right: 14px;
+  }
+  .hud-world .map-stage[data-detail-open="true"] .game-map-controls > button:nth-of-type(n + 2) {
+    display: none;
+  }
+  .habitat-hud {
+    left: 18px;
+    top: 74px;
+    gap: 8px;
+  }
+  .habitat-hud > span:last-child {
+    font-size: 11px;
+  }
+  .habitat-hud small {
+    font-size: 9px;
+  }
+  .hud-world .expedition-bottom {
+    left: 16px;
+    right: 16px;
+    bottom: 32px;
+    translate: 0;
+    width: auto;
+  }
+  .hud-world .scan-controls {
+    border-radius: 18px;
+    padding: 12px 12px 7px;
+  }
+  .hud-world .scan-caption {
+    font-size: 10px;
+    margin-bottom: 9px;
+  }
+  .hud-world .scan-button {
+    height: 49px;
+    min-height: 49px;
+    font-size: 13px;
+    padding: 0 16px;
+  }
+  .hud-world .new-search-button {
+    height: 49px;
+    width: 43px;
+  }
+  .hud-world .change-destination-button {
+    font-size: 9px;
+  }
+  .hud-world .mobile-results-button {
+    left: 16px;
+    bottom: 177px;
+    font-size: 11px;
+    min-height: 40px;
+    padding: 11px 14px;
+  }
+  .hud-world .map-stage:not([data-scope="site"]) .mobile-results-button {
+    left: 16px;
+    bottom: 35px;
+    transform: none;
+    min-width: 0;
+  }
+  .hud-world .map-exploration-prompt {
+    left: 18px;
+    bottom: 94px;
+    right: 84px;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 10px;
+  }
+  .hud-world .pokemon-detail {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 60dvh;
+    height: 500px;
+    border-radius: 23px 23px 0 0;
+  }
+  .hud-world .detail-topline {
+    padding: 11px 18px 5px;
+  }
+  .hud-world .detail-title h2 {
+    font-size: 27px;
+  }
+  .hud-world .expedition-panel {
+    border-radius: 23px 23px 0 0;
+  }
+  .hud-world .panel-title h2 {
+    font-size: 25px;
+  }
+  .hud-world .capture-play {
+    width: calc(100vw - 24px);
+    border-radius: 22px;
+    max-height: calc(100dvh - 24px);
+  }
+  .hud-world .capture-play .encounter-header {
+    padding: 12px 15px 0;
+  }
+  .hud-world .encounter-header > span {
+    font-size: 8px;
+    letter-spacing: 0.7px;
+  }
+  .hud-world .capture-play .encounter-identity {
+    padding: 4px 20px 13px;
+  }
+  .hud-world .capture-play .encounter-identity h2 {
+    font-size: 30px;
+  }
+  .hud-world .capture-play .capture-scene {
+    height: 280px;
+  }
+  .hud-world .moving-target {
+    top: 13px;
+  }
+  .hud-world .game-feedback {
+    padding: 14px 16px 11px;
+    min-height: 69px;
+  }
+  .hud-world .game-feedback strong {
+    font-size: 12px;
+  }
+  .hud-world .game-feedback small {
+    font-size: 9px;
+  }
+  .hud-world .encounter-kit {
+    padding: 0 15px 16px;
+  }
+  .hud-world .ball-choices {
+    gap: 6px;
+  }
+  .hud-world .ball-choices button {
+    min-height: 58px;
+    font-size: 10px;
+    padding: 8px 6px;
+    gap: 5px;
+    border-radius: 10px;
+  }
+  .hud-world .ball-choices small {
+    font-size: 8px;
+  }
+  .kit-ball-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+  .hud-world .berry-button {
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+  .hud-world .berry-button small {
+    font-size: 9px;
+  }
+  .hud-world .keyboard-mode {
+    font-size: 9px;
+    padding-top: 12px;
+  }
+}
+@media (max-height: 720px) {
+  .hud-world .capture-play .capture-scene {
+    height: 270px;
+  }
+  .hud-world .capture-play .moving-target {
+    height: 175px;
+    width: 175px;
+    left: calc(50% - 87.5px);
+    top: 0;
+  }
+  .hud-world .capture-play .moving-target > img {
+    width: 175px;
+    height: 175px;
+  }
+  .hud-world .capture-play .encounter-identity h2 {
+    font-size: 25px;
+  }
+  .hud-world .game-feedback {
+    padding-top: 10px;
+    min-height: 58px;
+  }
+}

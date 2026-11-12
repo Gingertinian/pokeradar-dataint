@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.env*
+!.env.example
+coverage/
+*.tsbuildinfo
+artifacts/
+tmp/
+next-env.d.ts
+AGENTS.md
+docs/*
+!docs/assets.md

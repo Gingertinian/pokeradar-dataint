@@ -1,0 +1,1342 @@
+.pokemon-world {
+  --ink: #28354f;
+  --deep: #293d62;
+  --muted: #8b94a7;
+  --accent: #eb6267;
+  --paper: #f4f6fc;
+}
+.pokemon-world .app-header {
+  background: #fff;
+  box-shadow: 0 1px 14px #52659a09;
+  transition: background 1.2s;
+}
+.pokemon-world .brand-edition {
+  color: #a2a7ba;
+}
+.pokemon-world .main-navigation > button.is-active {
+  background: #eff2ff;
+  color: #5c6bd3;
+}
+.pokemon-world .nav-team-count {
+  background: #dce3fc;
+  color: #6071b5;
+}
+.pokemon-world .expedition-panel {
+  background: #fcfcff;
+  border-color: #e7eaf4;
+}
+.pokemon-world .panel-title h2 {
+  font-weight: 700;
+  letter-spacing: -0.9px;
+  color: #2e3d60;
+}
+.pokemon-world .panel-title p {
+  font-size: 12px;
+  color: #969eb1;
+}
+.pokemon-world .panel-title p {
+  color: #8190a9;
+}
+.pokemon-world .panel-topline .section-kicker {
+  color: #acb1c5;
+  letter-spacing: 1.8px;
+}
+.pokemon-world .atlas-region-card {
+  border: 1px solid #e4e8f3;
+  background: #eef3fc;
+  color: #33415d;
+  min-height: 142px;
+  height: 142px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px #4c609208;
+}
+.pokemon-world .atlas-region-card > img {
+  opacity: 0.2;
+  filter: saturate(0.6);
+}
+.pokemon-world .atlas-region-card::after {
+  background: linear-gradient(90deg, #f5f8fff2 5%, #f3f7ff99 55%, #edf4fc11);
+}
+.pokemon-world .region-card-copy {
+  gap: 7px;
+  padding: 24px 15px;
+  position: relative;
+  z-index: 2;
+  max-width: 220px;
+}
+.pokemon-world .region-card-copy > small {
+  color: #9aa4bd;
+  font-size: 8px;
+}
+.pokemon-world .region-card-copy > strong {
+  font-size: 20px;
+  max-width: 170px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.6px;
+}
+.pokemon-world .region-card-copy > span {
+  color: #7e8fab;
+  font-size: 9px;
+  max-width: 145px;
+  line-height: 1.5;
+}
+.pokemon-world .region-card-arrow {
+  display: none;
+}
+.region-card-pokemon {
+  position: absolute;
+  right: -8px;
+  bottom: -5px;
+  width: 146px;
+  height: 146px;
+  z-index: 1;
+  filter: drop-shadow(0 12px 12px #2e4a7220);
+  transition: transform 350ms;
+}
+.region-card-pokemon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pokemon-world .atlas-region-card:hover .region-card-pokemon {
+  transform: translateY(-6px) rotate(-3deg);
+}
+.pokemon-world .atlas-region-card:nth-child(2) {
+  background: #eaf8e9;
+}
+.pokemon-world .atlas-region-card:nth-child(3) {
+  background: #fff0df;
+}
+.pokemon-world .atlas-region-card:nth-child(4) {
+  background: #fff5cf;
+}
+.pokemon-world .atlas-region-card:nth-child(5) {
+  background: #e8f7ff;
+}
+.pokemon-world .panel-tabs {
+  border-color: #e8ecf6;
+  gap: 21px;
+}
+.pokemon-world .panel-tabs > button {
+  font-size: 12px;
+  color: #969db3;
+}
+.pokemon-world .panel-tabs > button[aria-pressed="true"] {
+  color: #5d70d8;
+}
+.pokemon-world .panel-tabs > button[aria-pressed="true"]::after {
+  background: #6c7ce0;
+  height: 3px;
+  border-radius: 3px;
+}
+.pokemon-world .weather-card {
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #7788a6;
+}
+.pokemon-world .weather-card summary {
+  padding: 3px 0;
+  gap: 9px;
+}
+.pokemon-world .weather-card strong {
+  font-size: 16px;
+  color: #7f8aa4;
+}
+.pokemon-world .weather-card strong > span {
+  font-size: 11px;
+  color: #8d97ac;
+}
+.pokemon-world .weather-symbol {
+  width: 22px;
+  color: #9baed1;
+}
+.pokemon-world .weather-symbol > svg {
+  width: 20px;
+  height: 20px;
+}
+.pokemon-world .weather-time {
+  font-size: 8px;
+  color: #adb5c6;
+}
+.pokemon-world .weather-card small {
+  font-size: 8px;
+  color: #b4bacc;
+}
+.pokemon-world .panel-weather {
+  padding-bottom: 14px;
+}
+.pokemon-world .expedition-filters .search-field {
+  background: #f1f3fa;
+  border-color: #e9edf7;
+}
+.pokemon-world .expedition-sightings > li {
+  border-bottom-color: #edf0f7;
+}
+.pokemon-world .expedition-sightings > li:hover,
+.pokemon-world .expedition-sightings > li.is-hovered {
+  background: #f2f5fd;
+}
+.pokemon-world .expedition-sightings > li.is-selected {
+  background: #edf1ff;
+  box-shadow: inset 3px 0 0 #7786e6;
+}
+.pokemon-world .expedition-sighting-main {
+  min-height: 95px;
+}
+.pokemon-world .expedition-sprite {
+  border-radius: 13px;
+}
+.pokemon-world .expedition-sighting-copy > strong {
+  font-size: 14px;
+  color: #3f4d6b;
+}
+.pokemon-world .expedition-sighting-copy > small {
+  font-size: 9px;
+  color: #a1aac0;
+}
+.pokemon-world .expedition-sighting-meta {
+  color: #a1acc3;
+}
+.pokemon-world .expedition-sighting-meta > span {
+  font-size: 9px;
+}
+.pokemon-world .list-sort {
+  font-size: 10px;
+  color: #9da8bf;
+}
+.pokemon-world .list-sort select {
+  font-size: 10px;
+  color: #8998b6;
+}
+.pokemon-world .map-breadcrumb {
+  background: #ffffffed;
+  border-color: #e0e7f6;
+  box-shadow: 0 4px 20px #5b70a21a;
+  border-radius: 11px;
+}
+.pokemon-world .map-breadcrumb button {
+  color: #798bab;
+}
+.pokemon-world .map-breadcrumb .current-place {
+  color: #4a5e89;
+}
+.pokemon-world .map-mode-toggle {
+  border-radius: 10px;
+  border-color: #e4e9f5;
+}
+.pokemon-world .map-mode-toggle button.is-active {
+  background: #5268ac;
+}
+.pokemon-world .atlas-map-heading h2 {
+  color: #344f7d;
+}
+.pokemon-world .atlas-map-heading em {
+  color: #7995ba;
+}
+.pokemon-world .atlas-map-heading p {
+  color: #96a8c0;
+}
+.pokemon-world .region-map-heading h2 {
+  color: #3b5480;
+}
+.pokemon-world .region-map-heading p,
+.pokemon-world .region-map-heading .section-kicker {
+  color: #8ba0bb;
+}
+.pokemon-world .site-map-caption {
+  border: 1px solid #e7ebf4;
+  border-radius: 7px;
+  color: #7c91ae;
+}
+.pokemon-world .atlas-region-marker {
+  width: 100%;
+  border-radius: 13px;
+  box-shadow: 0 6px 20px #394d751e;
+  border-color: #e3e9f2;
+  background: #fffffff5;
+  gap: 11px;
+  padding: 8px 15px 8px 8px;
+}
+.pokemon-world .region-marker-symbol {
+  width: 44px;
+  height: 46px;
+  position: relative;
+  border-radius: 10px;
+  background: #edf3fb !important;
+}
+.pokemon-world .region-marker-symbol > img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  max-width: none;
+  left: -8px;
+  top: -12px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 3px #3a4f7520);
+}
+.pokemon-world .atlas-region-marker strong {
+  color: #50628b;
+  font-size: 13px;
+}
+.pokemon-world .atlas-region-marker small {
+  color: #a4adc2;
+}
+.pokemon-world .destination-map-marker {
+  width: 100%;
+  background: #fffffff7;
+  border-color: #e0e8f3;
+  border-radius: 11px;
+  box-shadow: 0 5px 20px #284e7823;
+}
+.geographic-map-pin {
+  width: 0;
+  height: 0;
+  position: relative;
+}
+.geographic-pin-point {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: -4.5px;
+  top: -4.5px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 5px #3d5a7133;
+}
+.geographic-pin-leader {
+  position: absolute;
+  left: 0;
+  top: -0.5px;
+  height: 1px;
+  opacity: 0.65;
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+.geographic-pin-label {
+  position: absolute;
+}
+.geographic-pin-label strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pokemon-world .destination-map-marker strong {
+  color: #4c6188;
+}
+.pokemon-world .destination-map-marker small {
+  color: #9caec0;
+}
+.pokemon-world .encounter-marker {
+  filter: drop-shadow(0 5px 5px #395a6220);
+}
+.pokemon-world .encounter-foot {
+  box-shadow: 0 2px 0 2px #ffffffc9;
+}
+.pokemon-world .encounter-selection-ring {
+  border-color: #ea7882;
+  box-shadow: 0 0 0 4px #f7a4b328;
+}
+.pokemon-world .encounter-label {
+  border-color: #e6eafa;
+  border-radius: 9px;
+  font-size: 11px;
+  color: #4e648f;
+  box-shadow: 0 4px 12px #4963901c;
+}
+.pokemon-world .encounter-cluster {
+  border-color: #fff;
+  color: #667eb1;
+  background: #f5f8ff;
+  box-shadow: 0 4px 15px #526fa128;
+}
+.pokemon-world .mission-compact {
+  background: #fffffff5;
+  border-color: #e6eafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px #4c64941a;
+}
+.pokemon-world .mission-emblem {
+  color: #9c8bd5;
+  background: #f0ecfc;
+}
+.pokemon-world .mission-compact strong {
+  color: #6b709e;
+  font-size: 12px;
+}
+.pokemon-world .mission-compact small {
+  color: #b0aec8;
+}
+.pokemon-world .scan-caption {
+  color: #637fa3;
+  font-size: 10px;
+  text-shadow: 0 1px 10px #fff;
+}
+.pokemon-world .scan-button {
+  background: #ec6570;
+  border-color: #e35c68;
+  box-shadow:
+    0 7px 0 #bc425729,
+    0 12px 30px #dc66752e;
+  border-radius: 13px;
+  padding: 17px 24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.pokemon-world .scan-button:hover {
+  background: #e85b69;
+}
+.pokemon-world .new-search-button {
+  color: #889dc0;
+  border-color: #e3eaf5;
+  border-radius: 12px;
+}
+.pokemon-world .change-destination-button {
+  color: #8da0bd;
+}
+.pokemon-world .team-dock {
+  border: 1px solid #e5eaf5;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px #4b679a15;
+}
+.pokemon-world .dock-slot.is-empty {
+  background: #f4f6fd;
+  border-color: #e6eaf5;
+}
+.pokemon-world .dock-slot.is-empty svg {
+  opacity: 0.25;
+}
+.pokemon-world .dock-title {
+  color: #9aa6c3;
+}
+.pokemon-world .pokemon-detail {
+  border-color: #e1e7f4;
+  box-shadow: 0 15px 50px #3d5b8c28;
+  border-radius: 18px;
+}
+.pokemon-world .detail-view-toggle button[aria-pressed="true"] {
+  color: #687ac3;
+  background: #edf1fe;
+}
+.pokemon-world .detail-title h2 {
+  color: #364972;
+  font-weight: 700;
+}
+.pokemon-world .save-button {
+  background: #e96674;
+  border-radius: 10px;
+  box-shadow: 0 3px 0 #be405233;
+}
+.pokemon-world .save-button.is-saved {
+  color: #7c90bd;
+  background: #edf3fc;
+  box-shadow: none;
+}
+.pokemon-world .detail-compare-button {
+  color: #9ca9c4;
+}
+.pokemon-world .map-exploration-prompt {
+  border-color: #e1e7f4;
+  color: #8a9dbb;
+  box-shadow: 0 4px 16px #405b8310;
+}
+.pokemon-world .map-exploration-prompt button {
+  color: #768fc0;
+}
+.journal-view-toggle {
+  display: flex;
+  padding: 4px;
+  border-radius: 8px;
+  background: #edf0f9;
+  margin: 23px 0 0;
+  gap: 4px;
+}
+.journal-view-toggle button {
+  flex: 1;
+  font-size: 10px;
+  border: 0;
+  background: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: #96a2bd;
+}
+.journal-view-toggle button[aria-pressed="true"] {
+  background: #fff;
+  color: #6e7bb9;
+  box-shadow: 0 2px 4px #55659c0c;
+}
+.field-collection {
+  padding-top: 22px;
+}
+.collection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.collection-heading h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  color: #536690;
+}
+.collection-heading > span {
+  font:
+    14px "IBM Plex Mono",
+    monospace;
+  color: #7b8fbe;
+}
+.collection-heading small {
+  font:
+    9px "DM Sans",
+    sans-serif;
+  color: #a0adc8;
+}
+.field-collection > p {
+  font-size: 10px;
+  color: #9daac4;
+  line-height: 1.6;
+  margin: 9px 0 13px;
+}
+.collection-generations {
+  display: flex;
+  gap: 5px;
+}
+.collection-generations button {
+  flex: 1;
+  font-size: 9px;
+  padding: 7px;
+  border: 1px solid #e3e8f5;
+  background: #fff;
+  color: #9aa9c4;
+  border-radius: 6px;
+}
+.collection-generations button[aria-pressed="true"] {
+  background: #edf2ff;
+  border-color: #b1bde6;
+  color: #7588c1;
+}
+.collection-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 8px;
+  color: #a2aec9;
+  margin: 14px 0;
+}
+.collection-progress > i {
+  flex: 1;
+  height: 4px;
+  border-radius: 3px;
+  background: #e9edf7;
+  overflow: hidden;
+}
+.collection-progress > i > span {
+  display: block;
+  height: 100%;
+  background: #adbce9;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+}
+.collection-grid > button {
+  position: relative;
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e9edf6;
+  border-radius: 9px;
+  background: #f2f4fa;
+  color: #b1bbd1;
+  gap: 5px;
+}
+.collection-grid > button.is-known {
+  background: #fff;
+  border-color: #dce5fb;
+  box-shadow: 0 2px 6px #7388ba0a;
+}
+.collection-grid > button.is-in-team {
+  background: #f0f6ff;
+  border-color: #b6c8ef;
+}
+.collection-grid > button > svg {
+  opacity: 0.11;
+}
+.collection-grid > button > span {
+  font-size: 7px;
+}
+.collection-grid > button.is-known > span {
+  position: absolute;
+  bottom: 3px;
+  color: #b0bdd5;
+}
+.collection-grid > button > img {
+  width: 49px;
+  height: 49px;
+}
+.pokemon-world .prompt-pulse {
+  background: #94a9dd;
+  box-shadow: 0 0 0 4px #94a9dd1a;
+}
+.pokemon-world[data-weather="rain"] .app-header,
+.pokemon-world[data-weather="storm"] .app-header {
+  background: #f0f4fc;
+}
+.pokemon-world[data-weather="snow"] .app-header {
+  background: #f5faff;
+}
+.pokemon-world[data-weather="sun"] .app-header {
+  background: #fffdf7;
+}
+.pokemon-world[data-period="night"] .app-header {
+  background: #edf0fb;
+}
+.atmosphere-control {
+  position: relative;
+}
+.atmosphere-control summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  list-style: none;
+  font-size: 10px;
+  color: #6f8ca9;
+  background: #ffffffed;
+  border: 1px solid #e1e9f4;
+  border-radius: 9px;
+  padding: 8px 11px;
+  cursor: pointer;
+  box-shadow: 0 3px 15px #48699512;
+}
+.atmosphere-control summary::-webkit-details-marker {
+  display: none;
+}
+.atmosphere-preview-label {
+  font-size: 8px;
+  color: #b18cb7;
+  background: #fff8fff0;
+  padding: 4px 7px;
+  border-radius: 5px;
+}
+.atmosphere-menu {
+  position: absolute;
+  top: calc(100% + 7px);
+  right: 0;
+  width: 263px;
+  background: #fff;
+  border: 1px solid #e5ebf4;
+  border-radius: 12px;
+  padding: 17px;
+  box-shadow: 0 12px 45px #3157852b;
+}
+.atmosphere-menu > strong {
+  display: block;
+  font-size: 12px;
+  color: #5d769c;
+  margin-bottom: 13px;
+}
+.atmosphere-menu > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.atmosphere-menu button {
+  font-size: 9px;
+  color: #9aa8c0;
+  border: 1px solid #ebeff7;
+  border-radius: 7px;
+  background: #fafbff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 3px;
+}
+.atmosphere-menu button[aria-pressed="true"] {
+  border-color: #9eaee0;
+  color: #6b83b5;
+  background: #eff4ff;
+}
+.atmosphere-menu p {
+  font-size: 9px;
+  line-height: 1.6;
+  color: #b1bbce;
+  margin: 13px 0 0;
+}
+.world-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+.world-atmosphere.atmosphere-cloud {
+  background: linear-gradient(#8ea7bf19, transparent 75%);
+}
+.weather-clouds {
+  position: absolute;
+  inset: 0;
+  opacity: 0.9;
+}
+.weather-clouds > span {
+  position: absolute;
+  top: -140px;
+  left: -10%;
+  width: 600px;
+  height: 245px;
+  background: radial-gradient(ellipse at 40% 60%, #fff9 0%, #fff6 30%, #fff0 69%);
+  filter: blur(18px);
+  animation: world-cloud-drift 38s ease-in-out infinite alternate;
+}
+.weather-clouds > span:nth-child(2) {
+  left: 35%;
+  top: -80px;
+  width: 800px;
+  height: 310px;
+  opacity: 0.65;
+  animation-duration: 50s;
+  animation-delay: -20s;
+}
+.weather-clouds > span:nth-child(3) {
+  left: 70%;
+  top: 20%;
+  width: 500px;
+  height: 180px;
+  opacity: 0.35;
+  animation-duration: 44s;
+}
+.atmosphere-rain,
+.atmosphere-storm {
+  background: linear-gradient(#4f6e9c30, #778ca014);
+}
+.atmosphere-rain .weather-clouds,
+.atmosphere-storm .weather-clouds {
+  filter: brightness(0.82);
+}
+.weather-particles {
+  position: absolute;
+  inset: 0;
+}
+.weather-particles > i {
+  position: absolute;
+  top: -20%;
+  height: 35px;
+  width: 1.5px;
+  background: linear-gradient(transparent, #487bba77);
+  border-radius: 2px;
+  animation: world-rain linear infinite;
+  will-change: transform;
+}
+.atmosphere-snow {
+  background: linear-gradient(#a4c4da2b, #eefaff16);
+}
+.atmosphere-snow .weather-particles > i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 7px #a1bfd4;
+  animation-name: world-snow;
+}
+.rain-ripples {
+  position: absolute;
+  inset: 0;
+}
+.rain-ripples > i {
+  position: absolute;
+  width: 20px;
+  height: 5px;
+  border: 1px solid #7498c35e;
+  border-radius: 50%;
+  animation: world-ripple 2.8s ease-out infinite;
+}
+.atmosphere-night {
+  background: linear-gradient(#2532604d, #59668d1a 75%);
+}
+.night-stars {
+  position: absolute;
+  inset: 0;
+}
+.night-stars > i {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 5px #fff;
+  animation: star-glow 4s ease-in-out infinite alternate;
+}
+.storm-glow {
+  position: absolute;
+  inset: 0;
+  background: #cddcff;
+  opacity: 0;
+  animation: storm-glow 12s ease-in-out infinite;
+}
+.world-atmosphere.is-still .weather-particles,
+.world-atmosphere.is-still .rain-ripples,
+.world-atmosphere.is-still .storm-glow {
+  display: none;
+}
+.world-atmosphere.is-still * {
+  animation: none !important;
+}
+@keyframes world-rain {
+  to {
+    transform: translate(-140px, 125vh);
+  }
+}
+@keyframes world-snow {
+  50% {
+    transform: translate(30px, 50vh);
+  }
+  to {
+    transform: translate(-20px, 125vh);
+  }
+}
+@keyframes world-ripple {
+  from {
+    transform: scale(0.2);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(3.6);
+    opacity: 0;
+  }
+}
+@keyframes world-cloud-drift {
+  to {
+    transform: translate(200px, 35px);
+  }
+}
+@keyframes star-glow {
+  to {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+}
+@keyframes storm-glow {
+  0%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  93% {
+    opacity: 0.12;
+  }
+  96% {
+    opacity: 0;
+  }
+}
+.capture-dialog {
+  inset: 0;
+  margin: auto;
+  width: min(520px, calc(100vw - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid #e0e7f4;
+  border-radius: 25px;
+  background: #fff;
+  color: #344770;
+  box-shadow: 0 25px 120px #203b685c;
+  overflow: auto;
+}
+.capture-dialog::backdrop {
+  background: #21396078;
+  backdrop-filter: blur(8px);
+}
+.encounter-header {
+  padding: 16px 20px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.encounter-header > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font:
+    8px "IBM Plex Mono",
+    monospace;
+  letter-spacing: 1.6px;
+  color: #9ba8c7;
+}
+.encounter-live-dot {
+  height: 5px;
+  width: 5px;
+  background: #ef9aa6;
+  box-shadow: 0 0 0 4px #ef9aa61a;
+  border-radius: 50%;
+}
+.encounter-header > div {
+  display: flex;
+  gap: 3px;
+}
+.encounter-header .icon-button {
+  color: #b5bfd2;
+}
+.encounter-identity {
+  padding: 10px 20px 19px;
+  text-align: center;
+}
+.encounter-identity > .mono {
+  font-size: 9px;
+  letter-spacing: 0.4px;
+  color: #b4bed2;
+}
+.encounter-identity h2 {
+  font-size: 33px;
+  letter-spacing: -1.3px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 8px 0 10px;
+  color: #3d5077;
+}
+.encounter-identity .type-badges {
+  justify-content: center;
+  gap: 6px;
+}
+.encounter-identity .type-badge {
+  font-size: 10px;
+}
+.capture-scene {
+  height: 320px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#dceefa, #ecf5fa 60%, #dae8d6 61%, #edf3e7);
+  isolation: isolate;
+}
+.capture-scene.habitat-forest {
+  background: linear-gradient(#cfecdd, #e8f3e7 60%, #c4dcbd 61%, #e5efd8);
+}
+.capture-scene.habitat-mountain {
+  background: linear-gradient(#d4e5ef, #edf0ec 60%, #dbd8ca 61%, #f0ecdd);
+}
+.capture-scene.habitat-glacier {
+  background: linear-gradient(#d5edf7, #eefbff 60%, #c6dfeb 61%, #eaf5fa);
+}
+.capture-scene.habitat-coast,
+.capture-scene.habitat-riverside {
+  background: linear-gradient(#cfe7f6, #e6f4ff 53%, #b8dfe8 54%, #cee9ed 70%, #efe7cb 71%, #f5edd6);
+}
+.encounter-scene-place {
+  position: absolute;
+  z-index: 4;
+  left: 15px;
+  top: 13px;
+  color: #6e9baa;
+  background: #f8fcff8c;
+  padding: 5px 8px;
+  font-size: 8px;
+  border-radius: 5px;
+}
+.encounter-pokemon {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: calc(50% - 125px);
+  top: 0;
+  z-index: 5;
+  filter: drop-shadow(0 12px 9px #496c7f20);
+}
+.encounter-pokemon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.catch-reticle {
+  position: absolute;
+  width: 206px;
+  height: 206px;
+  left: calc(50% - 103px);
+  top: 24px;
+  z-index: 6;
+  border: 2px solid #fff9;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #ffffff1a;
+  pointer-events: none;
+}
+.catch-reticle > span:first-child {
+  position: absolute;
+  inset: 12px;
+  border: 3px solid #9abdafb0;
+  border-radius: 50%;
+}
+.catch-reticle > span:last-child {
+  position: absolute;
+  left: calc(50% - 3px);
+  top: -4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 9px #fff;
+}
+.capture-dialog[data-phase="aiming"] .catch-reticle > span:first-child {
+  border-color: #f5bc6c;
+}
+.throw-pokeball {
+  position: absolute;
+  left: calc(50% - 38px);
+  bottom: 15px;
+  width: 76px;
+  height: 76px;
+  border: 0;
+  padding: 0;
+  background: none;
+  border-radius: 50%;
+  z-index: 8;
+  filter: drop-shadow(0 10px 7px #5b718339);
+}
+.capture-instruction {
+  text-align: center;
+  padding: 22px 20px 17px;
+  min-height: 83px;
+}
+.capture-instruction > strong {
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  color: #627397;
+  line-height: 1.5;
+}
+.capture-instruction > span {
+  display: block;
+  font-size: 11px;
+  color: #8190aa;
+  margin-top: 6px;
+}
+.capture-actions {
+  padding: 0 28px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.capture-primary {
+  border: 1px solid #c83c59;
+  border-radius: 13px;
+  background: #d33e5c;
+  color: #fff;
+  box-shadow: 0 5px 0 #c94b6524;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 15px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    background 150ms,
+    transform 150ms;
+}
+.capture-primary:hover {
+  background: #c93455;
+  transform: translateY(-1px);
+}
+.capture-primary:disabled {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+.capture-primary.is-aiming {
+  background: #526caa;
+  border-color: #4962a0;
+  box-shadow: 0 5px 0 #526ea124;
+}
+.capture-secondary {
+  border: 0;
+  background: none;
+  font-size: 11px;
+  color: #a6b3ce;
+  padding: 3px 10px;
+}
+.capture-dialog[data-phase="caught"] .capture-primary {
+  background: #357b68;
+  border-color: #2c705e;
+  box-shadow: 0 5px 0 #558c7b24;
+}
+.capture-dialog[data-phase="caught"] .encounter-identity h2 {
+  font-size: 28px;
+  color: #739c8f;
+}
+.capture-dialog[data-phase="caught"] .encounter-live-dot {
+  background: #8ebba5;
+  box-shadow: 0 0 0 4px #8ebba51a;
+}
+.caught-check {
+  position: absolute;
+  right: calc(50% - 104px);
+  top: 20px;
+  width: 42px;
+  height: 42px;
+  background: #83bca3;
+  color: white;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  z-index: 8;
+  box-shadow: 0 4px 16px #6f9d8533;
+}
+.capture-success-ring {
+  position: absolute;
+  left: calc(50% - 115px);
+  top: 5px;
+  width: 230px;
+  height: 230px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  z-index: 7;
+}
+.capture-sparks {
+  position: absolute;
+  z-index: 7;
+  left: 50%;
+  top: 40%;
+}
+.capture-sparks > i {
+  position: absolute;
+  width: 5px;
+  height: 10px;
+  background: #eec775;
+  border-radius: 2px;
+  transform: rotate(var(--spark-angle));
+  animation: catch-spark 1.2s cubic-bezier(0.12, 0.6, 0.27, 1) both;
+}
+.capture-sparks > i:nth-child(2n) {
+  background: #a3c6e2;
+}
+.capture-sparks > i:nth-child(3n) {
+  background: #edb8c9;
+}
+.encounter-fetching {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 8;
+  font-size: 10px;
+  color: #8da7b4;
+}
+.encounter-api-error {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f6fbffd9;
+  font-size: 12px;
+  gap: 13px;
+}
+.is-scene .weather-clouds > span {
+  width: 340px;
+  height: 180px;
+  top: -70px;
+}
+.is-scene .weather-clouds > span:nth-child(2) {
+  width: 400px;
+  top: -25px;
+}
+.is-scene .weather-particles > i {
+  animation-name: scene-rain;
+}
+.is-scene.atmosphere-snow .weather-particles > i {
+  animation-name: scene-snow;
+}
+@keyframes scene-rain {
+  to {
+    transform: translate(-65px, 430px);
+  }
+}
+@keyframes scene-snow {
+  to {
+    transform: translate(22px, 420px);
+  }
+}
+@keyframes catch-spark {
+  from {
+    opacity: 1;
+    transform: rotate(var(--spark-angle)) translateY(0) scale(0.3);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(var(--spark-angle)) translateY(var(--spark-distance)) scale(1.2);
+  }
+}
+@media (max-width: 760px) {
+  .pokemon-world .map-stage[data-detail-open="true"] .maplibregl-ctrl-top-right {
+    display: none;
+  }
+  .pokemon-world .app-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .pokemon-world .panel-title h2 {
+    font-size: 24px;
+  }
+  .pokemon-world .atlas-region-card {
+    height: 134px;
+    min-height: 134px;
+  }
+  .pokemon-world .region-card-copy {
+    padding-top: 22px;
+  }
+  .pokemon-world .region-card-copy > strong {
+    max-width: 175px;
+  }
+  .pokemon-world .atlas-region-marker strong {
+    font-size: 11px;
+  }
+  .pokemon-world .region-marker-symbol {
+    width: 34px;
+    height: 36px;
+  }
+  .pokemon-world .region-marker-symbol > img {
+    width: 48px;
+    height: 48px;
+    top: -10px;
+    left: -7px;
+  }
+  .pokemon-world .atlas-region-marker {
+    padding: 7px 10px 7px 6px;
+    gap: 7px;
+  }
+  .pokemon-world .scan-button {
+    font-size: 13px;
+    padding: 15px 18px;
+    border-radius: 12px;
+  }
+  .atmosphere-control summary {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+  .atmosphere-control summary > svg:first-child {
+    width: 15px;
+  }
+  .pokemon-world .site-map-caption {
+    top: 136px;
+    max-width: calc(100% - 160px);
+    font-size: 8px;
+  }
+  .pokemon-world .site-map-caption > span:last-child,
+  .pokemon-world .site-map-caption .caption-dot {
+    display: none;
+  }
+  .pokemon-world .maplibregl-ctrl-top-right,
+  .pokemon-world .map-stage[data-detail-open="true"] .maplibregl-ctrl-top-right {
+    top: 225px;
+  }
+  .atmosphere-preview-label {
+    font-size: 7px;
+    max-width: 140px;
+  }
+  .pokemon-world .pokemon-detail {
+    border-radius: 22px 22px 0 0;
+  }
+  .capture-dialog {
+    border-radius: 21px;
+    max-height: calc(100dvh - 20px);
+  }
+  .encounter-header {
+    padding: 12px 13px 0 18px;
+  }
+  .encounter-header > span {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .encounter-identity {
+    padding: 7px 18px 16px;
+  }
+  .encounter-identity h2 {
+    font-size: 29px;
+    margin-top: 6px;
+  }
+  .encounter-identity > .mono {
+    font-size: 8px;
+  }
+  .capture-scene {
+    height: 290px;
+  }
+  .encounter-pokemon {
+    width: 225px;
+    height: 225px;
+    left: calc(50% - 112.5px);
+  }
+  .catch-reticle {
+    width: 180px;
+    height: 180px;
+    left: calc(50% - 90px);
+    top: 21px;
+  }
+  .capture-instruction {
+    padding: 18px 15px 15px;
+    min-height: 80px;
+  }
+  .capture-instruction > strong {
+    font-size: 12px;
+  }
+  .capture-instruction > span {
+    font-size: 9px;
+  }
+  .capture-actions {
+    padding: 0 20px 19px;
+  }
+  .capture-primary {
+    font-size: 13px;
+    padding: 13px 16px;
+  }
+  .capture-dialog[data-phase="caught"] .encounter-identity h2 {
+    font-size: 23px;
+  }
+}
+@media (max-height: 740px) {
+  .capture-scene {
+    height: 240px;
+  }
+  .encounter-pokemon {
+    height: 205px;
+    width: 205px;
+    left: calc(50% - 102.5px);
+  }
+  .catch-reticle {
+    width: 170px;
+    height: 170px;
+    left: calc(50% - 85px);
+    top: 15px;
+  }
+  .encounter-identity {
+    padding-top: 3px;
+    padding-bottom: 12px;
+  }
+  .encounter-identity h2 {
+    font-size: 26px;
+  }
+  .capture-instruction {
+    padding: 15px;
+    min-height: 72px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .world-atmosphere *,
+  .capture-sparks > i {
+    animation: none !important;
+  }
+  .weather-particles,
+  .rain-ripples,
+  .storm-glow,
+  .capture-sparks {
+    display: none;
+  }
+  .region-card-pokemon,
+  .capture-primary {
+    transition: none;
+  }
+}
